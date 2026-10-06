@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Зовнішньоекономічна безпека держави | Моніторинг економічної безпеки</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Chart.js для візуалізації -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Модуль каталогу країн Світового Банку -->
+  <script src="countries.js"></script>
+  <!-- Головний файл стилів -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+  <!-- Заголовок і контролери -->
+  <header>
+    <div class="header-top">
+      <div class="header-titles">
+        <div class="header-meta">
+          <span class="badge-portal">World Bank Open Data &bull; Економічна безпека держави</span>
+        </div>
+        <h1 id="pageMainTitle">Моніторинг Зовнішньоекономічної Безпеки Держави</h1>
+        <p id="pageMainSubtitle">Оцінка ступеня відкритості національної економіки, інтеграції у світовий ринок, торговельного балансу та вразливості до зовнішніх шоків.</p>
+      </div>
+    </div>
+    
+    <div class="controls">
+      <div class="form-group country-control-group custom-select-group">
+        <label id="countrySelectLabel" for="countryTrigger">Країна для аналізу:</label>
+        <div class="searchable-select" id="countrySearchableSelect">
+          <button type="button" class="select-trigger" id="countryTrigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="countrySelectLabel countryTrigger">
+            <div class="trigger-content">
+              <span class="trigger-code" id="triggerCode">UKR</span>
+              <span class="trigger-label" id="triggerLabel">Україна</span>
+            </div>
+            <svg class="trigger-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          
+          <div class="select-dropdown" id="countryDropdown" role="listbox" aria-label="Вибір країни">
+            <div class="dropdown-search-box">
+              <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="countrySearchInput" class="dropdown-search-input" placeholder="Пошук країни (назва або код UKR, POL...)" autocomplete="off" />
+              <button type="button" id="countrySearchClear" class="search-clear-btn" title="Очистити" style="display: none;">&times;</button>
+            </div>
+
+            <div class="dropdown-filter-tabs">
+              <button type="button" class="filter-tab active" data-filter="all" onclick="filterCountryTab('all', event)">Всі країни (<span id="totalCountriesCount">0</span>)</button>
+              <button type="button" class="filter-tab" data-filter="popular" onclick="filterCountryTab('popular', event)">Популярні</button>
+              <button type="button" class="filter-tab" data-filter="aggregates" onclick="filterCountryTab('aggregates', event)">Регіони / Світ</button>
+            </div>
+            
+            <div class="dropdown-options-list" id="countryOptionsList" tabindex="-1"></div>
+
+            <div class="dropdown-empty-state" id="countryEmptyState" style="display: none;">
+              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: 4px;">Країну не знайдено</div>
+              <div style="font-size: 12px; color: var(--color-text-muted);">Спробуйте іншу назву (укр/англ) або ISO-код (напр. UKR, DEU, Польща)</div>
+            </div>
+          </div>
+        </div>
+        <!-- Приховане поле сумісності зі значенням коду країни -->
+        <input type="hidden" id="countrySelect" value="UKR" />
+      </div>
+
+      <div class="form-group domain-control-group">
+        <label for="domainSelect">Напрям економічної безпеки:</label>
+        <select id="domainSelect" onchange="onDomainChange()">
+          <option value="foreign" selected>Зовнішньоекономічна безпека (Відкритість та Торгівля)</option>
+          <option value="demo">Демографічна безпека</option>
+          <option value="energy">Енергетична безпека</option>
+          <option value="prod">Виробнича безпека</option>
+        </select>
+      </div>
+
+      <div class="form-group period-control-group custom-select-group">
+        <label id="periodSelectLabel" for="periodTrigger">Часовий проміжок:</label>
+        <div class="searchable-select" id="periodSearchableSelect">
+          <button type="button" class="select-trigger period-select-trigger" id="periodTrigger" onclick="togglePeriodDropdown()" aria-haspopup="dialog" aria-expanded="false" aria-labelledby="periodSelectLabel periodTrigger">
+            <div class="trigger-content">
+              <span class="period-trigger-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </span>
+              <span class="trigger-label period-label-text" id="periodTriggerLabel">2015 – 2024</span>
+              <span class="period-pill-badge" id="periodCountBadge">10 років</span>
+            </div>
+            <svg class="trigger-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+
+          <div class="select-dropdown period-dropdown" id="periodDropdown" role="dialog" aria-label="Налаштування часового проміжку">
+            <div class="period-dropdown-header">
+              <div class="period-dropdown-title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Діапазон аналізу</span>
+              </div>
+              <span class="period-dropdown-rule">від 1 до 10 років</span>
+            </div>
+
+            <div class="period-section">
+              <div class="period-section-label">Швидкий вибір:</div>
+              <div class="period-preset-grid">
+                <button type="button" class="preset-card active" data-years="10" onclick="applyPeriodPreset(10)" title="Останні 10 років">
+                  <span class="preset-name">10 р.</span>
+                  <span class="preset-span">2015–2024</span>
+                </button>
+                <button type="button" class="preset-card" data-years="7" onclick="applyPeriodPreset(7)" title="Останні 7 років">
+                  <span class="preset-name">7 р.</span>
+                  <span class="preset-span">2018–2024</span>
+                </button>
+                <button type="button" class="preset-card" data-years="5" onclick="applyPeriodPreset(5)" title="Останні 5 років">
+                  <span class="preset-name">5 р.</span>
+                  <span class="preset-span">2020–2024</span>
+                </button>
+                <button type="button" class="preset-card" data-years="3" onclick="applyPeriodPreset(3)" title="Останні 3 роки">
+                  <span class="preset-name">3 р.</span>
+                  <span class="preset-span">2022–2024</span>
+                </button>
+                <button type="button" class="preset-card" data-years="1" onclick="applyPeriodPreset(1)" title="Останній 1 рік">
+                  <span class="preset-name">1 рік</span>
+                  <span class="preset-span">2024</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="period-section">
+              <div class="period-section-label">Точні роки (1990–2024):</div>
+              <div class="period-custom-row">
+                <div class="period-input-box">
+                  <label for="startYearSelect" class="period-input-label">З року</label>
+                  <select id="startYearSelect" class="period-custom-select" onchange="onPeriodChange('start')" aria-label="Початковий рік"></select>
+                </div>
+                <div class="period-arrow-divider">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="period-input-box">
+                  <label for="endYearSelect" class="period-input-label">По рік</label>
+                  <select id="endYearSelect" class="period-custom-select" onchange="onPeriodChange('end')" aria-label="Кінцевий рік"></select>
+                </div>
+              </div>
+            </div>
+
+            <div class="period-meter-box">
+              <div class="period-meter-header">
+                <span class="meter-label">Тривалість інтервалу:</span>
+                <span class="meter-value" id="meterDurationText">10 років (максимум)</span>
+              </div>
+              <div class="meter-track">
+                <div class="meter-fill limit" id="meterDurationFill" style="width: 100%;"></div>
+              </div>
+            </div>
+
+            <div class="period-dropdown-footer">
+              <button type="button" class="period-btn-apply" onclick="applyAndClosePeriodDropdown()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Застосувати та оновити
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group form-group-action">
+        <button id="loadBtn" class="btn-primary" onclick="loadSecurityData()" aria-label="Завантажити актуальні дані">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Завантажити дані
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="loader" class="loader" role="status" aria-live="polite">
+    <div class="spinner"></div>
+    <div class="loader-text">Отримання актуальних даних зі Світового банку (World Bank API)...</div>
+  </div>
+
+
+  <!-- Зведена таблиця результатів -->
+  <div class="card" id="summaryCard">
+    <div class="card-header">
+      <div class="card-title-group">
+        <div class="card-title-with-badge">
+          <h2 id="tableTitle">Результати моніторингу</h2>
+        </div>
+        <p id="tableSubtitle">Динаміка за роками, середнє арифметичне значення та класифікація рівнів безпеки</p>
+      </div>
+      <div class="card-header-actions">
+        <button onclick="exportCSV()" class="btn-secondary" title="Завантажити таблицю у форматі CSV">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Експорт у CSV
+        </button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table id="dataTable">
+        <thead>
+          <tr id="tableHeader"></tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Візуалізація та тренди -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title-group">
+        <div class="card-title-with-badge">
+          <h2>Динаміка індикаторів та тренди</h2>
+        </div>
+        <p id="chartSubtitle">Графічне зіставлення значень індикаторів безпеки за обраний період</p>
+      </div>
+    </div>
+    <div class="chart-container">
+      <canvas id="securityChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Методологічна довідка та порогові значення -->
+  <div class="card" id="methodologyCard">
+    <div class="card-header">
+      <div class="card-title-group">
+        <h2 id="methodologyTitle">Методологія та порогові інтервали: Зовнішньоекономічна безпека</h2>
+        <p id="methodologySubtitle">Нормативна класифікація, формули та економічний зміст показників напряму</p>
+      </div>
+    </div>
+    <div id="methodologyContent" class="methodology-grid"></div>
+  </div>
+</div>
+
+<script>
+// 1. Конфігурація індикаторів та напрямів економічної безпеки
+const DOMAINS = {
+  foreign: {
+    title: "Зовнішньоекономічна безпека держави",
+    pageTitle: "Моніторинг Зовнішньоекономічної Безпеки Держави",
+    shortTitle: "Зовнішньоекономічна безпека",
+    methodologyTitle: "Методологія та порогові інтервали: Зовнішньоекономічна безпека",
+    description: "Оцінка ступеня відкритості національної економіки, інтеграції у світовий ринок, торговельного балансу та вразливості до зовнішніх шоків.",
+    indicators: [
+      {
+        id: "NE.EXP.GNFS.ZS",
+        name: "Експорт товарів і послуг (X)",
+        code: "X",
+        unit: "% до ВВП",
+        source: "World Bank WDI (NE.EXP.GNFS.ZS)",
+        sourceUrl: "https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
+        isComponent: true,
+        eval: null
+      },
+      {
+        id: "NE.IMP.GNFS.ZS",
+        name: "Імпорт товарів і послуг (M)",
+        code: "M",
+        unit: "% до ВВП",
+        source: "World Bank WDI (NE.IMP.GNFS.ZS)",
+        sourceUrl: "https://data.worldbank.org/indicator/NE.IMP.GNFS.ZS",
+        isComponent: true,
+        eval: null
+      },
+      {
+        id: "CALC.OE",
+        name: "Відкритість економіки (OE)",
+        code: "OE",
+        unit: "%",
+        formula: "OE = (X + M) / GDP × 100% = X% + M%",
+        rule: "Менше — краще (Більше — гірше)",
+        meaning: "Відображає ступінь інтеграції країни у світову економіку. Вищі значення можуть підвищувати вразливість до зовнішніх шоків. Відкрита економіка — більше можливостей, але й більше ризиків.",
+        source: "World Bank WDI (експорт + імпорт)",
+        sourceUrl: "https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
+        deps: ["NE.EXP.GNFS.ZS", "NE.IMP.GNFS.ZS"],
+        compute: (cache, year) => {
+          const x = cache["NE.EXP.GNFS.ZS"]?.[year];
+          const m = cache["NE.IMP.GNFS.ZS"]?.[year];
+          if (x !== undefined && m !== undefined && x !== null && m !== null) {
+            return x + m;
+          }
+          return undefined;
+        },
+        intervals: [
+          { range: "[0; 75]", level: "Оптимальний", cls: "badge-optimal", note: "Низька вразливість до шоків" },
+          { range: "[75; 85]", level: "Задовільний", cls: "badge-satisfactory", note: "Помірна відкритість" },
+          { range: "[85; 90]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Підвищена вразливість" },
+          { range: "[90; 95]", level: "Небезпечний", cls: "badge-danger", note: "Висока чутливість ринків" },
+          { range: "[95; 100]", level: "Критичний", cls: "badge-critical", note: "Загострення залежності" },
+          { range: "(100; ∞)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Гіпервідкритість, шокова нестійкість" }
+        ],
+        eval: (v) => {
+          if (v <= 75) return { name: "Оптимальний", cls: "badge-optimal" };
+          if (v <= 85) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v <= 90) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if (v <= 95) return { name: "Небезпечний", cls: "badge-danger" };
+          if (v <= 100) return { name: "Критичний", cls: "badge-critical" };
+          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
+        }
+      },
+      {
+        id: "CALC.K_POKR",
+        name: "Коефіцієнт покриття експортом імпорту (Kпокр)",
+        code: "Kпокр",
+        unit: "разів",
+        formula: "Kпокр = Експорт / Імпорт = X / M",
+        rule: "Оптимальний діапазон [1,00; 1,20]. Значно більше імпорту — гірше (< 1,00). Значно більше експорту — гірше (> 1,20).",
+        meaning: "Показник відображає збалансованість зовнішньої торгівлі товарами і послугами та залежність від імпорту. Збалансована зовнішня торгівля — стійка економіка. Як занадто низькі, так і надто високі значення свідчать про ризики для безпеки.",
+        source: "World Bank WDI (експорт / імпорт)",
+        sourceUrl: "https://data.worldbank.org/indicator/NE.IMP.GNFS.ZS",
+        deps: ["NE.EXP.GNFS.ZS", "NE.IMP.GNFS.ZS"],
+        compute: (cache, year) => {
+          const x = cache["NE.EXP.GNFS.ZS"]?.[year];
+          const m = cache["NE.IMP.GNFS.ZS"]?.[year];
+          if (x !== undefined && m !== undefined && x !== null && m !== null && m > 0) {
+            return x / m;
+          }
+          return undefined;
+        },
+        intervals: [
+          { range: "[0; 0,85)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Глибокий торговельний дефіцит" },
+          { range: "[0,85; 0,90)", level: "Критичний", cls: "badge-critical", note: "Високий дефіцит покриття" },
+          { range: "[0,90; 0,95)", level: "Небезпечний", cls: "badge-danger", note: "Суттєве переважання імпорту" },
+          { range: "[0,95; 0,975)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірне переважання імпорту" },
+          { range: "[0,975; 1,00)", level: "Задовільний", cls: "badge-satisfactory", note: "Наближення до балансу" },
+          { range: "[1,00; 1,20]", level: "Оптимальний", cls: "badge-optimal", note: "Збалансована стійка торгівля" },
+          { range: "(1,20; 1,25]", level: "Задовільний", cls: "badge-satisfactory", note: "Помірний профіцит" },
+          { range: "(1,25; 1,30]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Зростання диспропорції" },
+          { range: "(1,30; 1,50]", level: "Небезпечний", cls: "badge-danger", note: "Висока зовнішня залежність" },
+          { range: "(1,50; 1,70]", level: "Критичний", cls: "badge-critical", note: "Критичний перекіс експорту" },
+          { range: "(1,70; ∞)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Гіперекспортна вразливість" }
+        ],
+        eval: (v) => {
+          if (v < 0.85) return { name: "Абсолютна небезпека", cls: "badge-absolute" };
+          if (v < 0.90) return { name: "Критичний", cls: "badge-critical" };
+          if (v < 0.95) return { name: "Небезпечний", cls: "badge-danger" };
+          if (v < 0.975) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if (v < 1.00) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v <= 1.20) return { name: "Оптимальний", cls: "badge-optimal" };
+          if (v <= 1.25) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v <= 1.30) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if (v <= 1.50) return { name: "Небезпечний", cls: "badge-danger" };
+          if (v <= 1.70) return { name: "Критичний", cls: "badge-critical" };
+          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
+        }
+      }
+    ]
+  },
+
+  demo: {
+    title: "Демографічна безпека держави",
+    pageTitle: "Моніторинг Демографічної Безпеки Держави",
+    shortTitle: "Демографічна безпека",
+    methodologyTitle: "Методологія та порогові інтервали: Демографічна безпека",
+    description: "Моніторинг вікової структури, тривалості життя та демографічного навантаження населення.",
+    indicators: [
+      {
+        id: "SP.DYN.LE00.FE.IN",
+        name: "Очікувана тривалість життя (жінки)",
+        code: "ТЖ (жінки)",
+        unit: "років",
+        source: "World Bank (SP.DYN.LE00.FE.IN)",
+        sourceUrl: "https://data.worldbank.org/indicator/SP.DYN.LE00.FE.IN",
+        formula: "Розрахунок Світового банку (років при народженні)",
+        meaning: "Визначає загальний рівень добробуту, охорони здоров'я та якість життя жіночого населення.",
+        intervals: [
+          { range: "≥ 78", level: "Оптимальний", cls: "badge-optimal" },
+          { range: "[75; 78)", level: "Задовільний", cls: "badge-satisfactory" },
+          { range: "[70; 75)", level: "Незадовільний", cls: "badge-unsatisfactory" },
+          { range: "[68; 70)", level: "Небезпечний", cls: "badge-danger" },
+          { range: "[66; 68)", level: "Критичний", cls: "badge-critical" },
+          { range: "< 66", level: "Абсолютна небезпека", cls: "badge-absolute" }
+        ],
+        eval: (v) => {
+          if (v >= 78) return { name: "Оптимальний", cls: "badge-optimal" };
+          if (v >= 75) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v >= 70) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if (v >= 68) return { name: "Небезпечний", cls: "badge-danger" };
+          if (v >= 66) return { name: "Критичний", cls: "badge-critical" };
+          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
+        }
+      },
+      {
+        id: "SP.DYN.LE00.MA.IN",
+        name: "Очікувана тривалість життя (чоловіки)",
+        code: "ТЖ (чоловіки)",
+        unit: "років",
+        source: "World Bank (SP.DYN.LE00.MA.IN)",
+        sourceUrl: "https://data.worldbank.org/indicator/SP.DYN.LE00.MA.IN",
+        formula: "Розрахунок Світового банку (років при народженні)",
+        meaning: "Індикатор життєздатності трудового потенціалу та соціально-економічного розвитку.",
+        intervals: [
+          { range: "≥ 78", level: "Оптимальний", cls: "badge-optimal" },
+          { range: "[75; 78)", level: "Задовільний", cls: "badge-satisfactory" },
+          { range: "[70; 75)", level: "Незадовільний", cls: "badge-unsatisfactory" },
+          { range: "[68; 70)", level: "Небезпечний", cls: "badge-danger" },
+          { range: "[66; 68)", level: "Критичний", cls: "badge-critical" },
+          { range: "< 66", level: "Абсолютна небезпека", cls: "badge-absolute" }
+        ],
+        eval: (v) => {
+          if (v >= 78) return { name: "Оптимальний", cls: "badge-optimal" };
+          if (v >= 75) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v >= 70) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if (v >= 68) return { name: "Небезпечний", cls: "badge-danger" };
+          if (v >= 66) return { name: "Критичний", cls: "badge-critical" };
+          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
+        }
+      },
+      {
+        id: "SP.DYN.IMRT.FE.IN",
+        name: "Дитяча смертність (дівчатка)",
+        code: "Смертність (дівч.)",
+        unit: "на 1 тис.",
+        source: "World Bank (SP.DYN.IMRT.FE.IN)",
+        sourceUrl: "https://data.worldbank.org/indicator/SP.DYN.IMRT.FE.IN",
+        formula: "Кількість померлих дітей до 1 року на 1000 живонароджених",
+        meaning: "Чутливий індикатор медичного обслуговування, материнства та дитинства.",
+        intervals: [
+          { range: "≤ 4", level: "Оптимальний", cls: "badge-optimal" },
+          { range: "(4; 5]", level: "Задовільний", cls: "badge-satisfactory" },
+          { range: "(5; 7]", level: "Незадовільний", cls: "badge-unsatisfactory" },
+          { range: "(7; 9]", level: "Небезпечний", cls: "badge-danger" },
+          { range: "(9; 11]", level: "Критичний", cls: "badge-critical" },
+          { range: "> 11", level: "Абсолютна небезпека", cls: "badge-absolute" }
+        ],
+        eval: (v) => {
+          if (v <= 4) return { name: "Оптимальний", cls: "badge-optimal" };
+          if (v <= 5) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v <= 7) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if (v <= 9) return { name: "Небезпечний", cls: "badge-danger" };
+          if (v <= 11) return { name: "Критичний", cls: "badge-critical" };
+          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
+        }
+      },
+      {
+        id: "SP.POP.65UP.TO.ZS",
+        name: "Населення віком 65+ років",
+        code: "Частка 65+",
+        unit: "%",
+        source: "World Bank (SP.POP.65UP.TO.ZS)",
+        sourceUrl: "https://data.worldbank.org/indicator/SP.POP.65UP.TO.ZS",
+        formula: "Частка населення віком 65 років і старше у загальній чисельності",
+        meaning: "Старіння нації, навантаження на пенсійну систему та соціальні фонди.",
+        intervals: [
+          { range: "[18; 20]", level: "Оптимальний", cls: "badge-optimal" },
+          { range: "[17; 18) | (20; 21]", level: "Задовільний", cls: "badge-satisfactory" },
+          { range: "[15; 17) | (21; 22]", level: "Незадовільний", cls: "badge-unsatisfactory" },
+          { range: "(22; 23]", level: "Небезпечний", cls: "badge-danger" },
+          { range: "(23; 25]", level: "Критичний", cls: "badge-critical" },
+          { range: "> 25", level: "Абсолютна небезпека", cls: "badge-absolute" }
+        ],
+        eval: (v) => {
+          if (v > 25) return { name: "Абсолютна небезпека", cls: "badge-absolute" };
+          if (v > 23) return { name: "Критичний", cls: "badge-critical" };
+          if (v > 22) return { name: "Небезпечний", cls: "badge-danger" };
+          if (v > 21) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if (v > 20) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v >= 18) return { name: "Оптимальний", cls: "badge-optimal" };
+          if (v >= 17) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v >= 15) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          return { name: "Критичний / Небезпечний", cls: "badge-critical" };
+        }
+      },
+      {
+        id: "SP.POP.DPND",
+        name: "Демографічне навантаження на працездатне нас.",
+        code: "Навантаження",
+        unit: "%",
+        source: "World Bank (SP.POP.DPND)",
+        sourceUrl: "https://data.worldbank.org/indicator/SP.POP.DPND",
+        formula: "Кількість непрацездатних (молодше 15 та старше 64) на 100 осіб віком 15–64",
+        meaning: "Співвідношення споживачів та виробників матеріальних благ в економіці.",
+        intervals: [
+          { range: "[45; 50]", level: "Оптимальний", cls: "badge-optimal" },
+          { range: "(50; 51]", level: "Задовільний", cls: "badge-satisfactory" },
+          { range: "(51; 52]", level: "Незадовільний", cls: "badge-unsatisfactory" },
+          { range: "(52; 53]", level: "Небезпечний", cls: "badge-danger" },
+          { range: "(53; 55]", level: "Критичний", cls: "badge-critical" },
+          { range: "> 55", level: "Абсолютна небезпека", cls: "badge-absolute" }
+        ],
+        eval: (v) => {
+          if (v > 55) return { name: "Абсолютна небезпека", cls: "badge-absolute" };
+          if (v > 53) return { name: "Критичний", cls: "badge-critical" };
+          if (v > 52) return { name: "Небезпечний", cls: "badge-danger" };
+          if (v > 51) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if (v > 50) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v >= 45) return { name: "Оптимальний", cls: "badge-optimal" };
+          return { name: "Задовільний / Критичний", cls: "badge-satisfactory" };
+        }
+      }
+    ]
+  },
+
+  energy: {
+    title: "Енергетична безпека держави",
+    pageTitle: "Моніторинг Енергетичної Безпеки Держави",
+    shortTitle: "Енергетична безпека",
+    methodologyTitle: "Методологія та порогові інтервали: Енергетична безпека",
+    description: "Оцінка енергетичної незалежності, енергоємності ВВП та використання відновлюваних ресурсів.",
+    indicators: [
+      {
+        id: "EG.IMP.CONS.ZS",
+        name: "Частка власних джерел у балансі ПЕР",
+        code: "Власні джерела",
+        unit: "%",
+        source: "World Bank (EG.IMP.CONS.ZS)",
+        sourceUrl: "https://data.worldbank.org/indicator/EG.IMP.CONS.ZS",
+        formula: "100 - Чистий імпорт енергії (% від використання енергії)",
+        transform: (v) => 100 - v,
+        intervals: [
+          { range: "≥ 80", level: "Оптимальний", cls: "badge-optimal" },
+          { range: "[70; 80)", level: "Задовільний", cls: "badge-satisfactory" },
+          { range: "[60; 70)", level: "Незадовільний", cls: "badge-unsatisfactory" },
+          { range: "[50; 60)", level: "Небезпечний", cls: "badge-danger" },
+          { range: "[40; 50)", level: "Критичний", cls: "badge-critical" },
+          { range: "< 40", level: "Абсолютна небезпека", cls: "badge-absolute" }
+        ],
+        eval: (v) => {
+          if (v >= 80) return { name: "Оптимальний", cls: "badge-optimal" };
+          if (v >= 70) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v >= 60) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if (v >= 50) return { name: "Небезпечний", cls: "badge-danger" };
+          if (v >= 40) return { name: "Критичний", cls: "badge-critical" };
+          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
+        }
+      },
+      {
+        id: "EG.EGY.PRIM.PP.KD",
+        name: "Енергоємність ВВП",
+        code: "Енергоємність",
+        unit: "МДж/$",
+        source: "World Bank (EG.EGY.PRIM.PP.KD)",
+        sourceUrl: "https://data.worldbank.org/indicator/EG.EGY.PRIM.PP.KD",
+        formula: "Споживання первинної енергії (МДж) на $1 ВВП за ПКС",
+        intervals: [
+          { range: "≤ 3", level: "Оптимальний", cls: "badge-optimal" },
+          { range: "(3; 4]", level: "Задовільний", cls: "badge-satisfactory" },
+          { range: "(4; 5]", level: "Незадовільний", cls: "badge-unsatisfactory" },
+          { range: "(5; 6]", level: "Небезпечний", cls: "badge-danger" },
+          { range: "(6; 8]", level: "Критичний", cls: "badge-critical" },
+          { range: "> 8", level: "Абсолютна небезпека", cls: "badge-absolute" }
+        ],
+        eval: (v) => {
+          if (v <= 3) return { name: "Оптимальний", cls: "badge-optimal" };
+          if (v <= 4) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v <= 5) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if (v <= 6) return { name: "Небезпечний", cls: "badge-danger" };
+          if (v <= 8) return { name: "Критичний", cls: "badge-critical" };
+          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
+        }
+      },
+      {
+        id: "EG.FEC.RNEW.ZS",
+        name: "Частка відновлюваної енергії",
+        code: "ВДЕ",
+        unit: "%",
+        source: "World Bank (EG.FEC.RNEW.ZS)",
+        sourceUrl: "https://data.worldbank.org/indicator/EG.FEC.RNEW.ZS",
+        formula: "Частка ВДЕ у кінцевому споживанні енергії (%)",
+        intervals: [
+          { range: "≥ 30", level: "Оптимальний", cls: "badge-optimal" },
+          { range: "[20; 30)", level: "Задовільний", cls: "badge-satisfactory" },
+          { range: "[15; 20)", level: "Незадовільний", cls: "badge-unsatisfactory" },
+          { range: "[10; 15)", level: "Небезпечний", cls: "badge-danger" },
+          { range: "[5; 10)", level: "Критичний", cls: "badge-critical" },
+          { range: "< 5", level: "Абсолютна небезпека", cls: "badge-absolute" }
+        ],
+        eval: (v) => {
+          if (v >= 30) return { name: "Оптимальний", cls: "badge-optimal" };
+          if (v >= 20) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v >= 15) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if (v >= 10) return { name: "Небезпечний", cls: "badge-danger" };
+          if (v >= 5) return { name: "Критичний", cls: "badge-critical" };
+          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
+        }
+      },
+      {
+        id: "EG.ELC.LOSS.ZS",
+        name: "Втрати електроенергії в мережах",
+        code: "Втрати мереж",
+        unit: "%",
+        source: "World Bank (EG.ELC.LOSS.ZS)",
+        sourceUrl: "https://data.worldbank.org/indicator/EG.ELC.LOSS.ZS",
+        formula: "Втрати при передачі та розподілі електроенергії (% від виробленої)",
+        intervals: [
+          { range: "≤ 5", level: "Оптимальний", cls: "badge-optimal" },
+          { range: "(5; 7]", level: "Задовільний", cls: "badge-satisfactory" },
+          { range: "(7; 10]", level: "Незадовільний", cls: "badge-unsatisfactory" },
+          { range: "(10; 15]", level: "Небезпечний", cls: "badge-danger" },
+          { range: "(15; 20]", level: "Критичний", cls: "badge-critical" },
+          { range: "> 20", level: "Абсолютна небезпека", cls: "badge-absolute" }
+        ],
+        eval: (v) => {
+          if (v <= 5) return { name: "Оптимальний", cls: "badge-optimal" };
+          if (v <= 7) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if (v <= 10) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if (v <= 15) return { name: "Небезпечний", cls: "badge-danger" };
+          if (v <= 20) return { name: "Критичний", cls: "badge-critical" };
+          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
+        }
+      }
+    ]
+  },
+
+  prod: {
+    title: "Виробнича безпека держави",
+    pageTitle: "Моніторинг Виробничої Безпеки Держави",
+    shortTitle: "Виробнича безпека",
+    methodologyTitle: "Методологія та порогові інтервали: Виробнича безпека",
+    description: "Моніторинг стійкості реального сектору економіки та продовольчої бази.",
+    indicators: [
+      {
+        id: "AG.YLD.CREL.KG",
+        name: "Урожайність зернових культур",
+        code: "Урожайність",
+        unit: "ц/га",
+        source: "World Bank (AG.YLD.CREL.KG)",
+        sourceUrl: "https://data.worldbank.org/indicator/AG.YLD.CREL.KG",
+        formula: "Збір зернових у перерахунку на центнери з гектара (кг/га / 100)",
+        transform: (v) => v / 100,
+        intervals: [
+          { range: "[45; 55]", level: "Оптимальний", cls: "badge-optimal" },
+          { range: "[35; 45) | (55; 75)", level: "Задовільний", cls: "badge-satisfactory" },
+          { range: "[25; 35) | [75; 95)", level: "Незадовільний", cls: "badge-unsatisfactory" },
+          { range: "[20; 25) | [95; 100]", level: "Небезпечний", cls: "badge-danger" },
+          { range: "< 20 | > 100", level: "Критичний / Абсолютна небезпека", cls: "badge-critical" }
+        ],
+        eval: (v) => {
+          if (v >= 45 && v <= 55) return { name: "Оптимальний", cls: "badge-optimal" };
+          if ((v >= 35 && v < 45) || (v > 55 && v < 75)) return { name: "Задовільний", cls: "badge-satisfactory" };
+          if ((v >= 25 && v < 35) || (v >= 75 && v < 95)) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
+          if ((v >= 20 && v < 25) || (v >= 95 && v <= 100)) return { name: "Небезпечний", cls: "badge-danger" };
+          return { name: "Критичний / Абсолютна небезпека", cls: "badge-critical" };
+        }
+      }
+    ]
+  }
+};
+
+let myChart = null;
+let currentDataset = [];
+
+// Константи та стан часового проміжку (обмеження: від 1 до 10 років)
+const MIN_AVAILABLE_YEAR = 1990;
+const MAX_AVAILABLE_YEAR = 2024;
+const MIN_PERIOD_DURATION = 1;
+const MAX_PERIOD_DURATION = 10;
+
+let selectedStartYear = 2015;
+let selectedEndYear = 2024;
+let YEARS = [];
+
+// Граматичне відмінювання кількості років в українській мові
+function formatYearsCount(count) {
+  if (count % 10 === 1 && count % 100 !== 11) {
+    return `${count} рік`;
+  } else if ([2, 3, 4].includes(count % 10) && ![12, 13, 14].includes(count % 100)) {
+    return `${count} роки`;
+  } else {
+    return `${count} років`;
+  }
+}
+
+// Формування масиву років для розрахунків
+function updateYearsArray() {
+  YEARS = [];
+  for (let y = selectedStartYear; y <= selectedEndYear; y++) {
+    YEARS.push(String(y));
+  }
+}
+
+// Керування випадаючим вікном часового проміжку
+function togglePeriodDropdown(forceState) {
+  const dropdown = document.getElementById("periodDropdown");
+  const trigger = document.getElementById("periodTrigger");
+  if (!dropdown || !trigger) return;
+
+  const isOpen = forceState !== undefined ? forceState : !dropdown.classList.contains("open");
+  if (isOpen) {
+    if (typeof closeCountryDropdown === "function") {
+      closeCountryDropdown();
+    }
+    dropdown.classList.add("open");
+    trigger.classList.add("active");
+    trigger.setAttribute("aria-expanded", "true");
+  } else {
+    dropdown.classList.remove("open");
+    trigger.classList.remove("active");
+    trigger.setAttribute("aria-expanded", "false");
+  }
+}
+
+function closePeriodDropdown() {
+  togglePeriodDropdown(false);
+}
+
+function applyAndClosePeriodDropdown() {
+  closePeriodDropdown();
+  loadSecurityData();
+}
+
+// Ініціалізація випадаючих списків років (від найновішого до найдавнішого)
+function initPeriodControls() {
+  const startSelect = document.getElementById("startYearSelect");
+  const endSelect = document.getElementById("endYearSelect");
+  if (!startSelect || !endSelect) return;
+
+  startSelect.innerHTML = "";
+  endSelect.innerHTML = "";
+
+  for (let y = MAX_AVAILABLE_YEAR; y >= MIN_AVAILABLE_YEAR; y--) {
+    const optStart = document.createElement("option");
+    optStart.value = y;
+    optStart.textContent = y;
+    if (y === selectedStartYear) optStart.selected = true;
+    startSelect.appendChild(optStart);
+
+    const optEnd = document.createElement("option");
+    optEnd.value = y;
+    optEnd.textContent = y;
+    if (y === selectedEndYear) optEnd.selected = true;
+    endSelect.appendChild(optEnd);
+  }
+
+  // Обробник кліку поза межами попапу
+  document.addEventListener("click", (e) => {
+    const wrapper = document.getElementById("periodSearchableSelect");
+    if (wrapper && !wrapper.contains(e.target)) {
+      closePeriodDropdown();
+    }
+  });
+
+  // Закриття клавішею Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closePeriodDropdown();
+    }
+  });
+
+  updatePeriodUI();
+}
+
+// Оновлення інтерфейсу часового проміжку та бейджів
+function updatePeriodUI() {
+  updateYearsArray();
+  const count = selectedEndYear - selectedStartYear + 1;
+
+  // Оновлення тригера на головній панелі
+  const triggerLabel = document.getElementById("periodTriggerLabel");
+  if (triggerLabel) {
+    triggerLabel.textContent = selectedStartYear === selectedEndYear 
+      ? `${selectedStartYear}` 
+      : `${selectedStartYear} – ${selectedEndYear}`;
+  }
+
+  const badge = document.getElementById("periodCountBadge");
+  if (badge) {
+    badge.textContent = formatYearsCount(count);
+  }
+
+  // Оновлення лічильника і шкали в попапі
+  const meterVal = document.getElementById("meterDurationText");
+  const meterFill = document.getElementById("meterDurationFill");
+  if (meterVal) {
+    if (count === MAX_PERIOD_DURATION) {
+      meterVal.textContent = `${formatYearsCount(count)} (максимум)`;
+    } else if (count === MIN_PERIOD_DURATION) {
+      meterVal.textContent = `${formatYearsCount(count)} (мінімум)`;
+    } else {
+      meterVal.textContent = `${formatYearsCount(count)} з 10`;
+    }
+  }
+  if (meterFill) {
+    const percent = (count / MAX_PERIOD_DURATION) * 100;
+    meterFill.style.width = `${percent}%`;
+    if (count === MAX_PERIOD_DURATION || count === MIN_PERIOD_DURATION) {
+      meterFill.classList.add("limit");
+    } else {
+      meterFill.classList.remove("limit");
+    }
+  }
+
+  // Оновлення активного класу карток пресетів
+  document.querySelectorAll(".preset-card").forEach(card => {
+    const cardYears = parseInt(card.getAttribute("data-years"), 10);
+    if (cardYears === count && selectedEndYear === MAX_AVAILABLE_YEAR) {
+      card.classList.add("active");
+    } else {
+      card.classList.remove("active");
+    }
+  });
+}
+
+// Обробник зміни року зі строгим дотриманням правила: 1 <= діапазон <= 10
+function onPeriodChange(changedSource) {
+  let start = parseInt(document.getElementById("startYearSelect").value, 10);
+  let end = parseInt(document.getElementById("endYearSelect").value, 10);
+
+  if (changedSource === 'start') {
+    if (start > end) {
+      end = start;
+    }
+    if (end - start + 1 > MAX_PERIOD_DURATION) {
+      end = Math.min(MAX_AVAILABLE_YEAR, start + MAX_PERIOD_DURATION - 1);
+    }
+  } else if (changedSource === 'end') {
+    if (end < start) {
+      start = end;
+    }
+    if (end - start + 1 > MAX_PERIOD_DURATION) {
+      start = Math.max(MIN_AVAILABLE_YEAR, end - MAX_PERIOD_DURATION + 1);
+    }
+  }
+
+  if (end - start + 1 > MAX_PERIOD_DURATION) {
+    end = start + MAX_PERIOD_DURATION - 1;
+  }
+  if (end < start) {
+    end = start;
+  }
+
+  selectedStartYear = start;
+  selectedEndYear = end;
+
+  document.getElementById("startYearSelect").value = selectedStartYear;
+  document.getElementById("endYearSelect").value = selectedEndYear;
+
+  updatePeriodUI();
+}
+
+// Швидке застосування популярних пресетів (10р, 7р, 5р, 3р, 1р)
+function applyPeriodPreset(yearsCount) {
+  const end = MAX_AVAILABLE_YEAR;
+  const start = Math.max(MIN_AVAILABLE_YEAR, end - yearsCount + 1);
+
+  selectedStartYear = start;
+  selectedEndYear = end;
+
+  const startSelect = document.getElementById("startYearSelect");
+  const endSelect = document.getElementById("endYearSelect");
+  if (startSelect) startSelect.value = selectedStartYear;
+  if (endSelect) endSelect.value = selectedEndYear;
+
+  updatePeriodUI();
+  closePeriodDropdown();
+  loadSecurityData();
+}
+
+// Оновлення динамічних заголовків та описів відповідно до обраного напряму безпеки
+function updateDomainTitles(domainKey) {
+  const domain = DOMAINS[domainKey];
+  if (!domain) return;
+
+  const pageMainTitle = document.getElementById("pageMainTitle");
+  if (pageMainTitle) {
+    pageMainTitle.textContent = domain.pageTitle || `Моніторинг ${domain.title}`;
+  }
+
+  const pageMainSubtitle = document.getElementById("pageMainSubtitle");
+  if (pageMainSubtitle) {
+    pageMainSubtitle.textContent = domain.description;
+  }
+
+  const methodologyTitle = document.getElementById("methodologyTitle");
+  if (methodologyTitle) {
+    methodologyTitle.textContent = domain.methodologyTitle || `Методологія та порогові інтервали: ${domain.shortTitle || domain.title}`;
+  }
+
+  document.title = `${domain.title} | Моніторинг економічної безпеки держави`;
+}
+
+// Обробник зміни напряму безпеки
+function onDomainChange() {
+  const domainKey = document.getElementById("domainSelect").value;
+  updateDomainTitles(domainKey);
+  renderMethodology();
+  loadSecurityData();
+}
+
+// 2. Головна функція завантаження та розрахунку даних
+async function loadSecurityData() {
+  const country = document.getElementById("countrySelect").value;
+  const domainKey = document.getElementById("domainSelect").value;
+  const domain = DOMAINS[domainKey];
+  const loader = document.getElementById("loader");
+  const btn = document.getElementById("loadBtn");
+
+  updateDomainTitles(domainKey);
+
+  loader.classList.add("active");
+  btn.disabled = true;
+
+  updateYearsArray();
+  updatePeriodUI();
+
+  const countryDisplayName = typeof getCountryDisplayName === "function" ? getCountryDisplayName(country) : country;
+  document.getElementById("tableTitle").innerHTML = `${domain.title} &mdash; <span class="country-title-highlight">${countryDisplayName}</span>`;
+  document.getElementById("tableSubtitle").innerText = domain.description;
+
+  currentDataset = [];
+
+  try {
+    // 2.1. Збір унікальних індикаторів World Bank API, які необхідно завантажити
+    const requiredWbIds = new Set();
+    domain.indicators.forEach(ind => {
+      if (!ind.id.startsWith("CALC.")) {
+        requiredWbIds.add(ind.id);
+      }
+      if (ind.deps) {
+        ind.deps.forEach(depId => requiredWbIds.add(depId));
+      }
+    });
+
+    // 2.2. Паралельне завантаження даних через World Bank API
+    const wbCache = {};
+    const fetchPromises = Array.from(requiredWbIds).map(async (indicatorId) => {
+      const url = `https://api.worldbank.org/v2/country/${country}/indicator/${indicatorId}?date=${selectedStartYear}:${selectedEndYear}&per_page=100&format=json`;
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        const map = {};
+        if (json && json[1]) {
+          json[1].forEach(entry => {
+            if (entry.value !== null && entry.value !== undefined) {
+              map[entry.date] = parseFloat(entry.value);
+            }
+          });
+        }
+        wbCache[indicatorId] = map;
+      } catch (e) {
+        console.warn(`Помилка отримання ${indicatorId}:`, e);
+        wbCache[indicatorId] = {};
+      }
+    });
+
+    await Promise.all(fetchPromises);
+
+    // 2.3. Розрахунок та формування набору даних
+    for (const ind of domain.indicators) {
+      const valuesMap = {};
+
+      YEARS.forEach(y => {
+        if (ind.compute) {
+          const val = ind.compute(wbCache, y);
+          if (val !== undefined && val !== null && !isNaN(val)) {
+            valuesMap[y] = val;
+          }
+        } else {
+          let val = wbCache[ind.id]?.[y];
+          if (val !== undefined && val !== null && !isNaN(val)) {
+            if (ind.transform) val = ind.transform(val);
+            valuesMap[y] = val;
+          }
+        }
+      });
+
+      // Середнє значення
+      const validVals = Object.values(valuesMap);
+      const avg = validVals.length ? (validVals.reduce((a, b) => a + b, 0) / validVals.length) : null;
+      
+      // Оцінка середнього
+      let avgLevel = null;
+      if (ind.eval && avg !== null) {
+        avgLevel = ind.eval(avg);
+      } else if (ind.isComponent) {
+        avgLevel = { name: "Базовий показник (WDI)", cls: "badge-component" };
+      } else {
+        avgLevel = { name: "Немає даних", cls: "" };
+      }
+
+      currentDataset.push({
+        id: ind.id,
+        name: ind.name,
+        code: ind.code || "",
+        unit: ind.unit,
+        formula: ind.formula,
+        meaning: ind.meaning,
+        rule: ind.rule,
+        isComponent: ind.isComponent,
+        values: valuesMap,
+        avg: avg,
+        level: avgLevel,
+        evalFn: ind.eval
+      });
+    }
+
+    // 2.4. Відображення на сторінці
+    renderTable();
+    renderChart();
+    renderMethodology();
+
+  } catch (err) {
+    alert("Помилка завантаження та розрахунку даних: " + err.message);
+    console.error(err);
+  } finally {
+    loader.classList.remove("active");
+    btn.disabled = false;
+  }
+}
+
+// 3. Відображення таблиці результатів
+function renderTable() {
+  const header = document.getElementById("tableHeader");
+  const body = document.getElementById("tableBody");
+
+  header.innerHTML = `
+    <th class="col-sticky-num">№</th>
+    <th class="col-sticky-name">Індикатор безпеки</th>
+    <th style="width: 75px; text-align: center;">Од.</th>
+  ` +
+  YEARS.map(y => `<th style="text-align: right; min-width: 72px;">${y}</th>`).join('') +
+  `
+    <th style="text-align: right; min-width: 90px;">Середнє</th>
+    <th style="min-width: 155px; text-align: center;">Рівень безпеки (сер.)</th>
+  `;
+
+  body.innerHTML = "";
+
+  currentDataset.forEach((row, idx) => {
+    const tr = document.createElement("tr");
+    
+    // Назва індикатора та підпис
+    let indTitleHtml = `<div class="table-indicator-name">${row.name}</div>`;
+    if (row.formula) {
+      indTitleHtml += `<span class="table-indicator-sub">${row.formula}</span>`;
+    } else if (row.isComponent) {
+      indTitleHtml += `<span class="table-indicator-sub">Базовий компонент World Bank WDI</span>`;
+    }
+
+    let rowHtml = `
+      <td class="col-sticky-num" style="color: var(--color-text-muted); font-weight: 600;">${idx + 1}</td>
+      <td class="col-sticky-name">${indTitleHtml}</td>
+      <td style="color: var(--color-text-muted); font-weight: 500; text-align: center;">${row.unit}</td>
+    `;
+
+    // Значення за роками
+    YEARS.forEach(y => {
+      const v = row.values[y];
+      if (v !== undefined) {
+        let cellTitle = "";
+        if (row.evalFn) {
+          const yLvl = row.evalFn(v);
+          cellTitle = `${yLvl.name} (${v.toFixed(2)} ${row.unit})`;
+        }
+        rowHtml += `<td class="table-num-cell" title="${cellTitle}">${v.toFixed(2)}</td>`;
+      } else {
+        rowHtml += `<td style="text-align: right; color: var(--color-text-disabled);">—</td>`;
+      }
+    });
+
+    // Середнє значення
+    const avgStr = row.avg !== null ? `${row.avg.toFixed(2)}` : "—";
+    rowHtml += `<td class="table-avg-cell">${avgStr}</td>`;
+
+    // Рівень безпеки середній
+    const lvlBadge = row.level ? `<span class="badge ${row.level.cls}">${row.level.name}</span>` : "—";
+    rowHtml += `<td style="text-align: center;">${lvlBadge}</td>`;
+
+    tr.innerHTML = rowHtml;
+    body.appendChild(tr);
+  });
+}
+
+// 5. Побудова інтерактивного графіка (Chart.js) з підтримкою двох осей
+function renderChart() {
+  const ctx = document.getElementById("securityChart").getContext("2d");
+  if (myChart) myChart.destroy();
+
+  const palette = ['#1e40af', '#059669', '#d97706', '#dc2626', '#7c3aed', '#0284c7'];
+  
+  // Перевірка чи потрібна друга вісь (наприклад для коефіцієнта покриття "разів" проти відсотків "%")
+  const hasMultipleUnits = new Set(currentDataset.map(d => d.unit)).size > 1;
+  const hasTimesUnit = currentDataset.some(d => d.unit === 'разів');
+
+  const datasets = currentDataset.map((item, i) => {
+    const isTimesAxis = hasMultipleUnits && item.unit === 'разів';
+    const color = palette[i % palette.length];
+
+    return {
+      label: `${item.name} (${item.unit})`,
+      data: YEARS.map(y => item.values[y] !== undefined ? item.values[y] : null),
+      borderColor: color,
+      backgroundColor: color,
+      borderWidth: item.isComponent ? 1.8 : 2.8,
+      borderDash: item.isComponent ? [4, 4] : [],
+      pointRadius: YEARS.length === 1 ? (item.isComponent ? 6 : 8) : (item.isComponent ? 3 : 5),
+      pointHoverRadius: YEARS.length === 1 ? 10 : 7,
+      spanGaps: true,
+      tension: 0.25,
+      yAxisID: isTimesAxis ? 'y1' : 'y'
+    };
+  });
+
+  const scalesConfig = {
+    x: {
+      offset: YEARS.length === 1,
+      grid: { color: '#f1f5f9' },
+      ticks: { font: { weight: '600' }, color: '#475569' }
+    },
+    y: {
+      type: 'linear',
+      position: 'left',
+      grid: { color: '#f1f5f9' },
+      title: {
+        display: true,
+        text: currentDataset[0]?.unit || 'Значення',
+        color: '#64748b',
+        font: { weight: '600', size: 12 }
+      }
+    }
+  };
+
+  if (hasTimesUnit && hasMultipleUnits) {
+    scalesConfig.y.title.text = '% (відсотки до ВВП)';
+    scalesConfig.y1 = {
+      type: 'linear',
+      position: 'right',
+      grid: { drawOnChartArea: false },
+      title: {
+        display: true,
+        text: 'Коефіцієнт (разів)',
+        color: '#64748b',
+        font: { weight: '600', size: 12 }
+      }
+    };
+  }
+
+  myChart = new Chart(ctx, {
+    type: 'line',
+    data: { labels: YEARS, datasets: datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { boxWidth: 14, padding: 16, font: { family: 'Inter', size: 12 } }
+        },
+        tooltip: {
+          padding: 12,
+          boxPadding: 6,
+          usePointStyle: true,
+          callbacks: {
+            label: function(context) {
+              const item = currentDataset[context.datasetIndex];
+              const val = context.parsed.y;
+              if (val === null || val === undefined) return `${item.name}: немає даних`;
+              let suffix = "";
+              if (item.evalFn) {
+                const lvl = item.evalFn(val);
+                suffix = ` [${lvl.name}]`;
+              }
+              return ` ${item.name}: ${val.toFixed(2)} ${item.unit}${suffix}`;
+            }
+          }
+        }
+      },
+      scales: scalesConfig
+    }
+  });
+}
+
+// 6. Відображення методологічної довідки та інтервалів
+function renderMethodology() {
+  const domainKey = document.getElementById("domainSelect").value;
+  const domain = DOMAINS[domainKey];
+  const container = document.getElementById("methodologyContent");
+  container.innerHTML = "";
+
+  domain.indicators.forEach(ind => {
+    const card = document.createElement("div");
+    card.className = "methodology-card";
+
+    let formulaHtml = ind.formula ? `<div class="methodology-formula">${ind.formula}</div>` : "";
+    let ruleHtml = ind.rule ? `<div class="methodology-highlight"><strong>Орієнтир:</strong> ${ind.rule}</div>` : "";
+    let meaningHtml = ind.meaning 
+      ? `<div class="methodology-desc">${ind.meaning}</div>` 
+      : (ind.isComponent 
+        ? `<div class="methodology-desc">Базовий первинний статистичний показник національних рахунків за методологією Світового банку (WDI). Використовується як складова для розрахунку аналітичних індикаторів безпеки.</div>` 
+        : "");
+
+    let intervalsHtml = "";
+    if (ind.intervals && ind.intervals.length) {
+      intervalsHtml = `
+        <div class="thresholds-table-wrapper">
+          <table class="thresholds-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Інтервал (${ind.unit})</th>
+                <th style="width: 35%;">Рівень безпеки</th>
+                ${ind.intervals[0].note ? '<th style="width: 40%;">Характеристика стану</th>' : ''}
+              </tr>
+            </thead>
+            <tbody>
+              ${ind.intervals.map(row => `
+                <tr>
+                  <td><strong>${row.range}</strong></td>
+                  <td><span class="badge ${row.cls}">${row.level}</span></td>
+                  ${row.note ? `<td class="threshold-note">${row.note}</td>` : ''}
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    let sourceLinkHtml = "";
+    if (ind.sourceUrl) {
+      sourceLinkHtml = `
+        <div class="methodology-card-footer">
+          <span class="footer-label">Джерело:</span>
+          <a href="${ind.sourceUrl}" target="_blank" rel="noopener" class="source-link">${ind.source} ↗</a>
+        </div>
+      `;
+    }
+
+    card.innerHTML = `
+      <div class="methodology-card-header">
+        <div class="methodology-badge-group">
+          ${ind.isComponent 
+            ? `<span class="methodology-pill pill-component">Базовий компонент WDI</span>`
+            : `<span class="methodology-pill pill-indicator">Аналітичний індикатор</span>`
+          }
+          <span class="methodology-code-pill">${ind.code}</span>
+        </div>
+        <h3 class="methodology-title">${ind.name}</h3>
+      </div>
+      <div class="methodology-card-body">
+        ${formulaHtml}
+        ${ruleHtml}
+        ${meaningHtml}
+        ${intervalsHtml}
+      </div>
+      ${sourceLinkHtml}
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+// 7. Експорт даних у CSV
+function exportCSV() {
+  if (!currentDataset.length) return;
+  const country = document.getElementById("countrySelect").value;
+  const domainKey = document.getElementById("domainSelect").value;
+
+  let csv = "Indicator,Unit," + YEARS.join(",") + ",Average,Average_Level\n";
+
+  currentDataset.forEach(row => {
+    const vals = YEARS.map(y => row.values[y] !== undefined ? row.values[y].toFixed(2) : "").join(",");
+    const avgVal = row.avg !== null ? row.avg.toFixed(2) : "";
+    const avgLvl = row.level ? row.level.name : "";
+
+    csv += `"${row.name}","${row.unit}",${vals},${avgVal},"${avgLvl}"\n`;
+  });
+
+  const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `Security_Analysis_${domainKey}_${country}_${selectedStartYear}-${selectedEndYear}.csv`;
+  a.click();
+}
+
+// Автозапуск при відкритті сторінки
+window.onload = () => {
+  if (typeof initCountrySelect === "function") {
+    initCountrySelect();
+  }
+  initPeriodControls();
+  loadSecurityData();
+};
+</script>
+</body>
+</html>

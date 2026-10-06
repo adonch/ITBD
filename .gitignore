@@ -1,0 +1,33 @@
+# IDE та редактори коду
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Операційні системи (Windows / macOS)
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Конфігурації агентів та AI асистентів
+.agents/
+.gemini/
+
+# Залежності та збірки (на випадок використання npm/Vite)
+node_modules/
+dist/
+build/
+
+# Логи та тимчасові файли
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+tmp/
+temp/
+
+# Змінні оточення та секрети
+.env
+.env*.local
