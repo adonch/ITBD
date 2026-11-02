@@ -3,2211 +3,276 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Інвестиційно-інноваційна безпека держави | Моніторинг економічної безпеки</title>
+  <title>Головна сторінка | Донч Антон — Економічна безпека держави</title>
+  <meta name="description" content="Офіційна сторінка автора екзаменаційного проєкту з дисципліни 'Інформаційні технології у системі забезпечення економічної безпеки держави'. Дослідження економічної безпеки Аргентини." />
+  
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Chart.js для візуалізації -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Модуль каталогу країн Світового Банку -->
-  <script src="countries.js"></script>
-  <!-- Головний файл стилів -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Основний файл стилів -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <div class="container">
-  <!-- Заголовок і контролери -->
-  <header>
-    <div class="header-top">
-      <div class="header-titles">
-        <div class="header-meta">
-          <span class="badge-portal">World Bank Open Data &bull; Економічна безпека держави</span>
+
+  <!-- ========================================================================
+       1. ГОЛОВНЕ НАВІГАЦІЙНЕ МЕНЮ (MULTI-PAGE NAVIGATION)
+       ======================================================================== -->
+  <nav class="site-nav" aria-label="Головна навігація">
+    <a href="index.html" class="site-nav-brand">
+      <div class="site-nav-logo">IT</div>
+      <div class="site-nav-titles">
+        <span class="site-nav-title">Економічна безпека держави</span>
+        <span class="site-nav-subtitle">Інформаційні технології моніторингу</span>
+      </div>
+    </a>
+
+    <ul class="site-nav-links">
+      <li>
+        <a href="index.html" class="site-nav-link active">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Головна (Автор)
+        </a>
+      </li>
+      <li>
+        <a href="analysis.html" class="site-nav-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          Аналітика: Аргентина
+          <span class="site-nav-badge">ARG</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ========================================================================
+       2. ПРЕЗЕНТАЦІЙНИЙ БЛОК АВТОРА (HERO SECTION)
+       ======================================================================== -->
+  <section class="author-hero-card">
+    <div class="author-profile-grid">
+      <div class="author-avatar-wrapper">
+        <div class="author-avatar-img" title="Донч Антон">
+          ДА
         </div>
-        <h1 id="pageMainTitle">Моніторинг Інвестиційно-Інноваційної Безпеки Держави</h1>
-        <p id="pageMainSubtitle">Оцінка інвестиційної активності, нагромадження основного капіталу, прямих іноземних інвестицій, науково-дослідних витрат (R&D), кадрового забезпечення науки та розвитку цифрового суспільства.</p>
+        <div class="author-status-dot" title="Доступний онлайн / Студент"></div>
+      </div>
+
+      <div class="author-meta-block">
+        <div class="author-exam-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          Іспит з дисципліни &bull; Практична частина
+        </div>
+        <h1 class="author-name">Донч Антон</h1>
+        <p class="author-title">
+          Студент, дослідник інформаційно-аналітичних систем моніторингу макроекономічної та фінансової безпеки держави
+        </p>
+        
+        <div class="author-quick-pills">
+          <span class="quick-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            Кафедра економічної безпеки та ІТ
+          </span>
+          <span class="quick-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            2025 / 2026 навчальний рік
+          </span>
+          <span class="quick-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Україна
+          </span>
+          <span class="quick-pill" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">
+            🇦🇷 Країна дослідження: <strong>Аргентина (ARG)</strong>
+          </span>
+        </div>
       </div>
     </div>
-    
-    <div class="controls">
-      <div class="form-group country-control-group custom-select-group">
-        <label id="countrySelectLabel" for="countryTrigger">Країна для аналізу:</label>
-        <div class="searchable-select" id="countrySearchableSelect">
-          <button type="button" class="select-trigger" id="countryTrigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="countrySelectLabel countryTrigger">
-            <div class="trigger-content">
-              <span class="trigger-code" id="triggerCode">UKR</span>
-              <span class="trigger-label" id="triggerLabel">Україна</span>
-            </div>
-            <svg class="trigger-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          
-          <div class="select-dropdown" id="countryDropdown" role="listbox" aria-label="Вибір країни">
-            <div class="dropdown-search-box">
-              <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <input type="text" id="countrySearchInput" class="dropdown-search-input" placeholder="Пошук країни (назва або код UKR, POL...)" autocomplete="off" />
-              <button type="button" id="countrySearchClear" class="search-clear-btn" title="Очистити" style="display: none;">&times;</button>
-            </div>
+  </section>
 
-            <div class="dropdown-filter-tabs">
-              <button type="button" class="filter-tab active" data-filter="all" onclick="filterCountryTab('all', event)">Всі країни (<span id="totalCountriesCount">0</span>)</button>
-              <button type="button" class="filter-tab" data-filter="popular" onclick="filterCountryTab('popular', event)">Популярні</button>
-              <button type="button" class="filter-tab" data-filter="aggregates" onclick="filterCountryTab('aggregates', event)">Регіони / Світ</button>
-            </div>
-            
-            <div class="dropdown-options-list" id="countryOptionsList" tabindex="-1"></div>
+  <!-- ========================================================================
+       3. СТРУКТУРНІ КАРТКИ ІНФОРМАЦІЇ ПРО АВТОРА
+       ======================================================================== -->
+  <section class="author-details-grid">
 
-            <div class="dropdown-empty-state" id="countryEmptyState" style="display: none;">
-              <div style="font-weight: 600; color: var(--color-primary); margin-bottom: 4px;">Країну не знайдено</div>
-              <div style="font-size: 12px; color: var(--color-text-muted);">Спробуйте іншу назву (укр/англ) або ISO-код (напр. UKR, DEU, Польща)</div>
+    <!-- Освіта та статус -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon-badge icon-blue">
+          🎓
+        </div>
+        <h2 class="info-card-title">Освіта та професійний статус</h2>
+      </div>
+      <div class="info-card-content">
+        <p><strong>Освітній ступінь:</strong> Вища освіта (бакалаврат / магістратура).</p>
+        <p style="margin-top: 8px;"><strong>Дисципліна:</strong> «Інформаційні технології у системі забезпечення економічної безпеки держави».</p>
+        <p style="margin-top: 8px;"><strong>Спеціалізація:</strong> Кібербезпека</p>
+        <p style="margin-top: 8px;"><strong>Поточний статус:</strong> Здобувач вищої освіти, розробник аналітичних дашбордів та веб-сервісів на основі відкритих даних Світового Банку (World Bank API) та МВФ.</p>
+      </div>
+    </div>
+
+    <!-- Професійні та наукові інтереси -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon-badge icon-green">
+          🔬
+        </div>
+        <h2 class="info-card-title">Професійні та наукові інтереси</h2>
+      </div>
+      <div class="info-card-content">
+        <p>Комплекс дослідницьких пріоритетів охоплює моделювання та автоматизований моніторинг стійкості державних систем:</p>
+        <ul style="padding-left: 18px; margin-top: 6px; display: flex; flex-direction: column; gap: 4px;">
+          <li>Кількісна оцінка та порогове нормування індикаторів економічної безпеки держави;</li>
+          <li>Інформаційні технології збору, валідації та візуалізації великих масивів макроекономічних даних;</li>
+          <li>Аналіз боргової та зовнішньоекономічної стійкості країн, що розвиваються (Латинська Америка, Східна Європа);</li>
+          <li>Вплив кліматичних та інфляційних шоків на продовольчу й соціальну безпеку;</li>
+          <li>Розробка інтерактивних СППР (систем підтримки прийняття рішень) для органів державної влади.</li>
+        </ul>
+        <div class="skill-tags">
+          <span class="skill-tag">World Bank API</span>
+          <span class="skill-tag">Data Analysis</span>
+          <span class="skill-tag">Chart.js</span>
+          <span class="skill-tag">JavaScript / HTML5 / CSS3</span>
+          <span class="skill-tag">Macroeconomic Modeling</span>
+          <span class="skill-tag">Risk Assessment</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Контактні дані -->
+    <div class="info-card">
+      <div class="info-card-header">
+        <div class="info-icon-badge icon-purple">
+          📬
+        </div>
+        <h2 class="info-card-title">Контактні дані</h2>
+      </div>
+      <div class="info-card-content">
+        <p>Для академічного листування, зворотного зв'язку щодо розрахунків та перегляду вихідного коду проєкту:</p>
+        
+        <div class="contact-list" style="margin-top: 12px;">
+          <div class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <div>
+              <span style="color: var(--color-text-muted); font-size: 11px; display: block;">Електронна пошта:</span>
+              <a href="mailto:donch.a080@gmail.com">donch.a080@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <div>
+              <span style="color: var(--color-text-muted); font-size: 11px; display: block;">GitHub профіль та репозиторій:</span>
+              <a href="https://github.com/adonch/ITBD" target="_blank" rel="noopener noreferrer">github.com/adonch/ITBD</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
+            <div>
+              <span style="color: var(--color-text-muted); font-size: 11px; display: block;">Онлайн-публікація (GitHub Pages):</span>
+              <a href="https://adonch.github.io/ITBD/" target="_blank" rel="noopener noreferrer">adonch.github.io/ITBD</a>
             </div>
           </div>
         </div>
-        <!-- Приховане поле сумісності зі значенням коду країни -->
-        <input type="hidden" id="countrySelect" value="UKR" />
-      </div>
-
-      <div class="form-group domain-control-group">
-        <label for="domainSelect">Напрям економічної безпеки:</label>
-        <select id="domainSelect" onchange="onDomainChange()">
-          <option value="macro" selected>Макроекономічна безпека</option>
-          <option value="financial">Фінансова безпека</option>
-          <option value="invest">Інвестиційно-інноваційна безпека</option>
-          <option value="foreign">Зовнішньоекономічна безпека (Відкритість та Торгівля)</option>
-          <option value="prod">Виробнича безпека</option>
-          <option value="food">Продовольча безпека</option>
-          <option value="demo">Демографічна безпека</option>
-          <option value="social">Соціальна безпека</option>
-          <option value="energy">Енергетична безпека</option>
-        </select>
-      </div>
-
-      <div class="form-group period-control-group custom-select-group">
-        <label id="periodSelectLabel" for="periodTrigger">Часовий проміжок:</label>
-        <div class="searchable-select" id="periodSearchableSelect">
-          <button type="button" class="select-trigger period-select-trigger" id="periodTrigger" onclick="togglePeriodDropdown()" aria-haspopup="dialog" aria-expanded="false" aria-labelledby="periodSelectLabel periodTrigger">
-            <div class="trigger-content">
-              <span class="period-trigger-icon" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              </span>
-              <span class="trigger-label period-label-text" id="periodTriggerLabel">2015 – 2024</span>
-              <span class="period-pill-badge" id="periodCountBadge">10 років</span>
-            </div>
-            <svg class="trigger-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-
-          <div class="select-dropdown period-dropdown" id="periodDropdown" role="dialog" aria-label="Налаштування часового проміжку">
-            <div class="period-dropdown-header">
-              <div class="period-dropdown-title">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                <span>Діапазон аналізу</span>
-              </div>
-              <span class="period-dropdown-rule">від 1 до 10 років</span>
-            </div>
-
-            <div class="period-section">
-              <div class="period-section-label">Швидкий вибір:</div>
-              <div class="period-preset-grid">
-                <button type="button" class="preset-card active" data-years="10" onclick="applyPeriodPreset(10)" title="Останні 10 років">
-                  <span class="preset-name">10 р.</span>
-                  <span class="preset-span">2015–2024</span>
-                </button>
-                <button type="button" class="preset-card" data-years="7" onclick="applyPeriodPreset(7)" title="Останні 7 років">
-                  <span class="preset-name">7 р.</span>
-                  <span class="preset-span">2018–2024</span>
-                </button>
-                <button type="button" class="preset-card" data-years="5" onclick="applyPeriodPreset(5)" title="Останні 5 років">
-                  <span class="preset-name">5 р.</span>
-                  <span class="preset-span">2020–2024</span>
-                </button>
-                <button type="button" class="preset-card" data-years="3" onclick="applyPeriodPreset(3)" title="Останні 3 роки">
-                  <span class="preset-name">3 р.</span>
-                  <span class="preset-span">2022–2024</span>
-                </button>
-                <button type="button" class="preset-card" data-years="1" onclick="applyPeriodPreset(1)" title="Останній 1 рік">
-                  <span class="preset-name">1 рік</span>
-                  <span class="preset-span">2024</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="period-section">
-              <div class="period-section-label">Точні роки (1990–2024):</div>
-              <div class="period-custom-row">
-                <div class="period-input-box">
-                  <label for="startYearSelect" class="period-input-label">З року</label>
-                  <select id="startYearSelect" class="period-custom-select" onchange="onPeriodChange('start')" aria-label="Початковий рік"></select>
-                </div>
-                <div class="period-arrow-divider">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </div>
-                <div class="period-input-box">
-                  <label for="endYearSelect" class="period-input-label">По рік</label>
-                  <select id="endYearSelect" class="period-custom-select" onchange="onPeriodChange('end')" aria-label="Кінцевий рік"></select>
-                </div>
-              </div>
-            </div>
-
-            <div class="period-meter-box">
-              <div class="period-meter-header">
-                <span class="meter-label">Тривалість інтервалу:</span>
-                <span class="meter-value" id="meterDurationText">10 років (максимум)</span>
-              </div>
-              <div class="meter-track">
-                <div class="meter-fill limit" id="meterDurationFill" style="width: 100%;"></div>
-              </div>
-            </div>
-
-            <div class="period-dropdown-footer">
-              <button type="button" class="period-btn-apply" onclick="applyAndClosePeriodDropdown()">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                Застосувати та оновити
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group form-group-action">
-        <button id="loadBtn" class="btn-primary" onclick="loadSecurityData()" aria-label="Завантажити актуальні дані">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Завантажити дані
-        </button>
       </div>
     </div>
-  </header>
 
-  <div id="loader" class="loader" role="status" aria-live="polite">
-    <div class="spinner"></div>
-    <div class="loader-text">Отримання актуальних даних зі Світового банку (World Bank API)...</div>
-  </div>
+  </section>
 
-
-  <!-- Зведена таблиця результатів -->
-  <div class="card" id="summaryCard">
-    <div class="card-header">
-      <div class="card-title-group">
-        <div class="card-title-with-badge">
-          <h2 id="tableTitle">Результати моніторингу</h2>
-        </div>
-        <p id="tableSubtitle">Динаміка за роками, середнє арифметичне значення та класифікація рівнів безпеки</p>
+  <!-- ========================================================================
+       4. ПРЕЗЕНТАЦІЯ ПРАКТИЧНОЇ ЕКЗАМЕНАЦІЙНОЇ РОБОТИ (CTA BANNER)
+       ======================================================================== -->
+  <section class="project-cta-banner">
+    <div class="project-cta-text">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <span style="background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 700;">
+          🇦🇷 Практична частина іспиту
+        </span>
+        <span style="color: #93c5fd; font-size: 13px;">Детальний аналітичний звіт</span>
       </div>
-      <div class="card-header-actions">
-        <button onclick="exportCSV()" class="btn-secondary" title="Завантажити таблицю у форматі CSV">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Експорт у CSV
-        </button>
-      </div>
+      <h3>Економічна безпека Аргентини (2015–2024 рр.)</h3>
+      <p>
+        Аналітичне дослідження 7 ключових індикаторів економічної безпеки держави згідно з пороговими нормативними інтервалами: урожайність зернових, тривалість життя, смертність немовлят, покриття імпорту експортом, витрати на R&D, співвідношення доходів децильних груп та державний борг до ВВП. Графіки динаміки, визначення безпечних і небезпечних тенденцій, ідентифікація загроз та узагальнені висновки.
+      </p>
     </div>
-    <div class="table-responsive">
-      <table id="dataTable">
-        <thead>
-          <tr id="tableHeader"></tr>
-        </thead>
-        <tbody id="tableBody"></tbody>
-      </table>
-    </div>
-  </div>
 
-  <!-- Візуалізація та тренди -->
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title-group">
-        <div class="card-title-with-badge">
-          <h2>Динаміка індикаторів та тренди</h2>
-        </div>
-        <p id="chartSubtitle">Графічне зіставлення значень індикаторів безпеки за обраний період</p>
+    <div>
+      <a href="analysis.html" class="btn-cta">
+        <span>Перейти до аналітичної сторінки</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. КОРОТКИЙ ОГЛЯД МЕТОДОЛОГІЇ ТА ШКАЛИ ОЦІНКИ
+       ======================================================================== -->
+  <section class="card" style="padding: 28px 32px; margin-bottom: 32px;">
+    <div class="card-header" style="margin-bottom: 16px;">
+      <div>
+        <h2 style="font-size: 20px; font-weight: 800; color: var(--color-primary);">Методологічна основа дослідження безпеки</h2>
+        <p style="font-size: 13.5px; color: var(--color-text-secondary); margin-top: 4px;">
+          Оцінка базується на порівнянні фактичних статистичних значень показників з нормативними пороговими інтервалами (Теоретична частина іспиту)
+        </p>
       </div>
     </div>
-    <div class="chart-container">
-      <canvas id="securityChart"></canvas>
-    </div>
-  </div>
 
-  <!-- Методологічна довідка та порогові значення -->
-  <div class="card" id="methodologyCard">
-    <div class="card-header">
-      <div class="card-title-group">
-        <h2 id="methodologyTitle">Методологія та порогові інтервали: Інвестиційно-інноваційна безпека</h2>
-        <p id="methodologySubtitle">Нормативна класифікація, формули та економічний зміст показників напряму</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-top: 14px;">
+      <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: var(--radius-md); padding: 12px; text-align: center;">
+        <div style="font-size: 18px; margin-bottom: 4px;">🟢</div>
+        <div style="font-weight: 800; color: #065f46; font-size: 13px;">Оптимальний</div>
+        <div style="font-size: 11.5px; color: #047857; margin-top: 2px;">Максимальний рівень стійкості</div>
+      </div>
+
+      <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: var(--radius-md); padding: 12px; text-align: center;">
+        <div style="font-size: 18px; margin-bottom: 4px;">🟡</div>
+        <div style="font-weight: 800; color: #166534; font-size: 13px;">Задовільний</div>
+        <div style="font-size: 11.5px; color: #15803d; margin-top: 2px;">Допустимі відхилення</div>
+      </div>
+
+      <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius-md); padding: 12px; text-align: center;">
+        <div style="font-size: 18px; margin-bottom: 4px;">🟠</div>
+        <div style="font-weight: 800; color: #92400e; font-size: 13px;">Незадовільний</div>
+        <div style="font-size: 11.5px; color: #b45309; margin-top: 2px;">Сигнали ризику та вразливості</div>
+      </div>
+
+      <div style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: var(--radius-md); padding: 12px; text-align: center;">
+        <div style="font-size: 18px; margin-bottom: 4px;">🔴</div>
+        <div style="font-weight: 800; color: #9a3412; font-size: 13px;">Небезпечний</div>
+        <div style="font-size: 11.5px; color: #c2410c; margin-top: 2px;">Підвищена загроза безпеці</div>
+      </div>
+
+      <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: var(--radius-md); padding: 12px; text-align: center;">
+        <div style="font-size: 18px; margin-bottom: 4px;">🟣</div>
+        <div style="font-weight: 800; color: #991b1b; font-size: 13px;">Критичний</div>
+        <div style="font-size: 11.5px; color: #b91c1c; margin-top: 2px;">Передетап кризи, виснаження</div>
+      </div>
+
+      <div style="background: #ffe4e6; border: 1px solid #fda4af; border-radius: var(--radius-md); padding: 12px; text-align: center;">
+        <div style="font-size: 18px; margin-bottom: 4px;">⚫</div>
+        <div style="font-weight: 800; color: #881337; font-size: 13px;">Абсолютна небезпека</div>
+        <div style="font-size: 11.5px; color: #be123c; margin-top: 2px;">Руйнування системи, шок</div>
       </div>
     </div>
-    <div id="methodologyContent" class="methodology-grid"></div>
-  </div>
+  </section>
+
+  <!-- ========================================================================
+       6. ПІДВАЛ СТОРІНКИ (FOOTER)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-copy">
+      Автор сайту: <strong>Донч Антон</strong> &bull; Рік створення: <strong>2026</strong>
+    </div>
+    <div class="footer-meta">
+      Іспит з дисципліни «Інформаційні технології у системі забезпечення економічної безпеки держави» &bull; Практична частина
+    </div>
+    <div style="font-size: 11.5px; color: var(--color-text-muted);">
+      Опубліковано за допомогою <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a> &bull; Репозиторій: <a href="https://github.com/adonch/ITBD" target="_blank" rel="noopener noreferrer">adonch/ITBD</a>
+    </div>
+  </footer>
+
 </div>
 
-<script>
-// Локальні бенчмарки та калібровані показники для джерел без відкритого REST API (World Economics, FAOSTAT, USDA ERS)
-const LOCAL_BENCHMARKS = {
-  "WE.SHADOW.GDP": {
-    "UKR": { "2015": 40.0, "2016": 36.5, "2017": 33.8, "2018": 31.0, "2019": 28.5, "2020": 30.2, "2021": 31.8, "2022": 37.5, "2023": 35.0, "2024": 33.5 },
-    "POL": { "2015": 24.2, "2016": 23.5, "2017": 22.8, "2018": 22.0, "2019": 21.5, "2020": 22.4, "2021": 21.8, "2022": 21.2, "2023": 20.8, "2024": 20.5 },
-    "DEU": { "2015": 11.2, "2016": 10.8, "2017": 10.4, "2018": 10.1, "2019": 9.8, "2020": 10.5, "2021": 10.2, "2022": 9.9, "2023": 9.6, "2024": 9.4 },
-    "USA": { "2015": 8.1, "2016": 7.9, "2017": 7.7, "2018": 7.5, "2019": 7.3, "2020": 7.8, "2021": 7.6, "2022": 7.4, "2023": 7.2, "2024": 7.0 },
-    "DEFAULT": { "2015": 22.0, "2016": 21.5, "2017": 21.0, "2018": 20.5, "2019": 20.0, "2020": 21.0, "2021": 20.5, "2022": 20.2, "2023": 19.8, "2024": 19.5 }
-  },
-  "FOOD.KCAL_DAY": {
-    "UKR": { "2015": 2980, "2016": 3010, "2017": 3040, "2018": 3070, "2019": 3105, "2020": 3120, "2021": 3150, "2022": 2960, "2023": 3020, "2024": 3080 },
-    "POL": { "2015": 3410, "2016": 3430, "2017": 3460, "2018": 3490, "2019": 3520, "2020": 3510, "2021": 3530, "2022": 3520, "2023": 3540, "2024": 3550 },
-    "DEU": { "2015": 3520, "2016": 3530, "2017": 3540, "2018": 3550, "2019": 3560, "2020": 3550, "2021": 3560, "2022": 3570, "2023": 3580, "2024": 3590 },
-    "DEFAULT": { "2015": 3150, "2016": 3170, "2017": 3190, "2018": 3210, "2019": 3230, "2020": 3220, "2021": 3240, "2022": 3230, "2023": 3250, "2024": 3260 }
-  },
-  "FOOD.SELF.PORK": {
-    "UKR": { "2015": 86.4, "2016": 88.2, "2017": 89.5, "2018": 91.2, "2019": 92.4, "2020": 93.1, "2021": 94.0, "2022": 89.5, "2023": 91.0, "2024": 92.5 },
-    "DEFAULT": { "2015": 96.0, "2016": 97.0, "2017": 98.0, "2018": 98.5, "2019": 99.0, "2020": 98.0, "2021": 98.5, "2022": 97.5, "2023": 98.0, "2024": 98.5 }
-  },
-  "FOOD.SELF.MILK": {
-    "UKR": { "2015": 99.2, "2016": 98.7, "2017": 99.5, "2018": 100.4, "2019": 99.1, "2020": 98.5, "2021": 99.0, "2022": 96.8, "2023": 97.5, "2024": 98.2 },
-    "DEFAULT": { "2015": 101.0, "2016": 101.5, "2017": 102.0, "2018": 102.0, "2019": 101.8, "2020": 101.5, "2021": 101.8, "2022": 101.2, "2023": 101.5, "2024": 101.8 }
-  },
-  "FOOD.SELF.EGGS": {
-    "UKR": { "2015": 111.5, "2016": 110.2, "2017": 112.4, "2018": 113.8, "2019": 114.5, "2020": 112.0, "2021": 110.5, "2022": 104.2, "2023": 106.8, "2024": 108.5 },
-    "DEFAULT": { "2015": 102.0, "2016": 102.5, "2017": 103.0, "2018": 103.5, "2019": 103.0, "2020": 102.5, "2021": 103.0, "2022": 102.5, "2023": 103.0, "2024": 103.2 }
-  },
-  "FOOD.SELF.OIL": {
-    "UKR": { "2015": 640.0, "2016": 675.0, "2017": 710.0, "2018": 690.0, "2019": 725.0, "2020": 715.0, "2021": 740.0, "2022": 610.0, "2023": 650.0, "2024": 670.0 },
-    "DEFAULT": { "2015": 105.0, "2016": 106.0, "2017": 107.0, "2018": 106.5, "2019": 107.0, "2020": 106.0, "2021": 107.0, "2022": 105.5, "2023": 106.0, "2024": 106.5 }
-  },
-  "FOOD.SELF.SUGAR": {
-    "UKR": { "2015": 115.0, "2016": 122.0, "2017": 128.0, "2018": 120.0, "2019": 118.0, "2020": 114.0, "2021": 116.0, "2022": 110.0, "2023": 118.0, "2024": 122.0 },
-    "DEFAULT": { "2015": 99.0, "2016": 100.0, "2017": 101.0, "2018": 100.5, "2019": 101.0, "2020": 100.0, "2021": 100.5, "2022": 99.5, "2023": 100.0, "2024": 100.5 }
-  },
-  "FOOD.SELF.POTATO": {
-    "UKR": { "2015": 103.5, "2016": 104.2, "2017": 105.0, "2018": 104.8, "2019": 103.9, "2020": 104.5, "2021": 105.2, "2022": 102.1, "2023": 103.4, "2024": 104.0 },
-    "DEFAULT": { "2015": 101.0, "2016": 101.5, "2017": 102.0, "2018": 102.0, "2019": 101.8, "2020": 101.5, "2021": 101.8, "2022": 101.2, "2023": 101.5, "2024": 101.8 }
-  },
-  "SOC.FOOD_EXP": {
-    "UKR": { "2015": 41.5, "2016": 41.0, "2017": 40.5, "2018": 39.8, "2019": 39.2, "2020": 41.0, "2021": 41.6, "2022": 44.5, "2023": 43.2, "2024": 42.0 },
-    "POL": { "2015": 19.5, "2016": 19.1, "2017": 18.8, "2018": 18.4, "2019": 18.1, "2020": 18.9, "2021": 18.5, "2022": 19.2, "2023": 18.8, "2024": 18.4 },
-    "DEU": { "2015": 11.2, "2016": 11.0, "2017": 10.9, "2018": 10.8, "2019": 10.7, "2020": 11.4, "2021": 11.1, "2022": 11.5, "2023": 11.2, "2024": 11.0 },
-    "USA": { "2015": 7.4, "2016": 7.2, "2017": 7.1, "2018": 7.0, "2019": 6.9, "2020": 7.6, "2021": 7.3, "2022": 7.5, "2023": 7.2, "2024": 7.1 },
-    "DEFAULT": { "2015": 22.0, "2016": 21.5, "2017": 21.0, "2018": 20.8, "2019": 20.5, "2020": 21.5, "2021": 21.2, "2022": 21.8, "2023": 21.4, "2024": 21.0 }
-  }
-};
-
-const LOCAL_FALLBACKS = {
-  "GC.DOD.TOTL.GD.ZS": {
-    "UKR": { "2015": 79.1, "2016": 80.9, "2017": 71.8, "2018": 60.9, "2019": 50.3, "2020": 60.4, "2021": 48.9, "2022": 78.4, "2023": 84.4, "2024": 88.2 }
-  },
-  "FI.RES.TOTL.MO": {
-    "UKR": { "2015": 3.4, "2016": 3.6, "2017": 3.6, "2018": 3.5, "2019": 3.9, "2020": 4.8, "2021": 4.2, "2022": 3.8, "2023": 5.4, "2024": 5.2 }
-  },
-  "SI.POV.DDAY": {
-    "UKR": { "2015": 0.1, "2016": 0.1, "2017": 0.1, "2018": 0.1, "2019": 0.1, "2020": 0.2, "2021": 0.2, "2022": 7.1, "2023": 5.8, "2024": 5.2 },
-    "DEFAULT": { "2015": 10.5, "2016": 10.2, "2017": 9.8, "2018": 9.3, "2019": 8.9, "2020": 9.2, "2021": 8.8, "2022": 8.5, "2023": 8.2, "2024": 8.0 }
-  },
-  "CALC.D10_RATIO": {
-    "UKR": { "2015": 5.4, "2016": 5.3, "2017": 5.4, "2018": 5.5, "2019": 5.3, "2020": 5.4, "2021": 5.5, "2022": 5.8, "2023": 5.7, "2024": 5.6 },
-    "DEFAULT": { "2015": 5.5, "2016": 5.5, "2017": 5.4, "2018": 5.4, "2019": 5.4, "2020": 5.5, "2021": 5.4, "2022": 5.5, "2023": 5.4, "2024": 5.4 }
-  },
-  "CALC.GRAIN_PER_CAPITA": {
-    "UKR": { "2015": 1.40, "2016": 1.55, "2017": 1.46, "2018": 1.67, "2019": 1.80, "2020": 1.57, "2021": 2.09, "2022": 1.42, "2023": 1.62, "2024": 1.53 },
-    "DEFAULT": { "2015": 0.95, "2016": 0.98, "2017": 0.96, "2018": 0.99, "2019": 1.02, "2020": 1.01, "2021": 1.04, "2022": 0.98, "2023": 1.01, "2024": 1.00 }
-  },
-  "SE.XPD.TOTL.GD.ZS": {
-    "UKR": { "2021": 5.8, "2022": 5.6, "2023": 5.4, "2024": 5.3 }
-  },
-  "SH.XPD.GHED.GD.ZS": {
-    "UKR": { "2021": 3.9, "2022": 4.4, "2023": 4.2, "2024": 4.0 }
-  }
-};
-
-// 1. Конфігурація індикаторів та напрямів економічної безпеки
-const DOMAINS = {
-  foreign: {
-    title: "Зовнішньоекономічна безпека держави",
-    pageTitle: "Моніторинг Зовнішньоекономічної Безпеки Держави",
-    shortTitle: "Зовнішньоекономічна безпека",
-    methodologyTitle: "Методологія та порогові інтервали: Зовнішньоекономічна безпека",
-    description: "Оцінка ступеня відкритості національної економіки, інтеграції у світовий ринок, торговельного балансу та вразливості до зовнішніх шоків.",
-    indicators: [
-      {
-        id: "NE.EXP.GNFS.ZS",
-        name: "Експорт товарів і послуг (X)",
-        code: "X",
-        unit: "% до ВВП",
-        source: "World Bank WDI (NE.EXP.GNFS.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
-        isComponent: true,
-        eval: null
-      },
-      {
-        id: "NE.IMP.GNFS.ZS",
-        name: "Імпорт товарів і послуг (M)",
-        code: "M",
-        unit: "% до ВВП",
-        source: "World Bank WDI (NE.IMP.GNFS.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/NE.IMP.GNFS.ZS",
-        isComponent: true,
-        eval: null
-      },
-      {
-        id: "CALC.OE",
-        name: "Відкритість економіки (OE)",
-        code: "OE",
-        unit: "%",
-        formula: "OE = (X + M) / GDP × 100% = X% + M%",
-        rule: "Менше — краще (Більше — гірше)",
-        meaning: "Відображає ступінь інтеграції країни у світову економіку. Вищі значення можуть підвищувати вразливість до зовнішніх шоків. Відкрита економіка — більше можливостей, але й більше ризиків.",
-        source: "World Bank WDI (експорт + імпорт)",
-        sourceUrl: "https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
-        deps: ["NE.EXP.GNFS.ZS", "NE.IMP.GNFS.ZS"],
-        compute: (cache, year) => {
-          const x = cache["NE.EXP.GNFS.ZS"]?.[year];
-          const m = cache["NE.IMP.GNFS.ZS"]?.[year];
-          if (x !== undefined && m !== undefined && x !== null && m !== null) {
-            return x + m;
-          }
-          return undefined;
-        },
-        intervals: [
-          { range: "[0; 75]", level: "Оптимальний", cls: "badge-optimal", note: "Низька вразливість до шоків" },
-          { range: "[75; 85]", level: "Задовільний", cls: "badge-satisfactory", note: "Помірна відкритість" },
-          { range: "[85; 90]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Підвищена вразливість" },
-          { range: "[90; 95]", level: "Небезпечний", cls: "badge-danger", note: "Висока чутливість ринків" },
-          { range: "[95; 100]", level: "Критичний", cls: "badge-critical", note: "Загострення залежності" },
-          { range: "(100; ∞)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Гіпервідкритість, шокова нестійкість" }
-        ],
-        eval: (v) => {
-          if (v <= 75) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 85) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 90) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 95) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 100) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "CALC.K_POKR",
-        name: "Коефіцієнт покриття експортом імпорту (Kпокр)",
-        code: "Kпокр",
-        unit: "разів",
-        formula: "Kпокр = Експорт / Імпорт = X / M",
-        rule: "Оптимальний діапазон [1,00; 1,20]. Значно більше імпорту — гірше (< 1,00). Значно більше експорту — гірше (> 1,20).",
-        meaning: "Показник відображає збалансованість зовнішньої торгівлі товарами і послугами та залежність від імпорту. Збалансована зовнішня торгівля — стійка економіка. Як занадто низькі, так і надто високі значення свідчать про ризики для безпеки.",
-        source: "World Bank WDI (експорт / імпорт)",
-        sourceUrl: "https://data.worldbank.org/indicator/NE.IMP.GNFS.ZS",
-        deps: ["NE.EXP.GNFS.ZS", "NE.IMP.GNFS.ZS"],
-        compute: (cache, year) => {
-          const x = cache["NE.EXP.GNFS.ZS"]?.[year];
-          const m = cache["NE.IMP.GNFS.ZS"]?.[year];
-          if (x !== undefined && m !== undefined && x !== null && m !== null && m > 0) {
-            return x / m;
-          }
-          return undefined;
-        },
-        intervals: [
-          { range: "[0; 0,85)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Глибокий торговельний дефіцит" },
-          { range: "[0,85; 0,90)", level: "Критичний", cls: "badge-critical", note: "Високий дефіцит покриття" },
-          { range: "[0,90; 0,95)", level: "Небезпечний", cls: "badge-danger", note: "Суттєве переважання імпорту" },
-          { range: "[0,95; 0,975)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірне переважання імпорту" },
-          { range: "[0,975; 1,00)", level: "Задовільний", cls: "badge-satisfactory", note: "Наближення до балансу" },
-          { range: "[1,00; 1,20]", level: "Оптимальний", cls: "badge-optimal", note: "Збалансована стійка торгівля" },
-          { range: "(1,20; 1,25]", level: "Задовільний", cls: "badge-satisfactory", note: "Помірний профіцит" },
-          { range: "(1,25; 1,30]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Зростання диспропорції" },
-          { range: "(1,30; 1,50]", level: "Небезпечний", cls: "badge-danger", note: "Висока зовнішня залежність" },
-          { range: "(1,50; 1,70]", level: "Критичний", cls: "badge-critical", note: "Критичний перекіс експорту" },
-          { range: "(1,70; ∞)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Гіперекспортна вразливість" }
-        ],
-        eval: (v) => {
-          if (v < 0.85) return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-          if (v < 0.90) return { name: "Критичний", cls: "badge-critical" };
-          if (v < 0.95) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v < 0.975) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v < 1.00) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 1.20) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 1.25) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 1.30) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 1.50) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 1.70) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      }
-    ]
-  },
-
-  demo: {
-    title: "Демографічна безпека держави",
-    pageTitle: "Моніторинг Демографічної Безпеки Держави",
-    shortTitle: "Демографічна безпека",
-    methodologyTitle: "Методологія та порогові інтервали: Демографічна безпека",
-    description: "Моніторинг вікової структури, тривалості життя та демографічного навантаження населення.",
-    indicators: [
-      {
-        id: "SP.DYN.LE00.FE.IN",
-        name: "Очікувана тривалість життя (жінки)",
-        code: "ТЖ (жінки)",
-        unit: "років",
-        source: "World Bank (SP.DYN.LE00.FE.IN)",
-        sourceUrl: "https://data.worldbank.org/indicator/SP.DYN.LE00.FE.IN",
-        formula: "Розрахунок Світового банку (років при народженні)",
-        meaning: "Визначає загальний рівень добробуту, охорони здоров'я та якість життя жіночого населення.",
-        intervals: [
-          { range: "≥ 78", level: "Оптимальний", cls: "badge-optimal" },
-          { range: "[75; 78)", level: "Задовільний", cls: "badge-satisfactory" },
-          { range: "[70; 75)", level: "Незадовільний", cls: "badge-unsatisfactory" },
-          { range: "[68; 70)", level: "Небезпечний", cls: "badge-danger" },
-          { range: "[66; 68)", level: "Критичний", cls: "badge-critical" },
-          { range: "< 66", level: "Абсолютна небезпека", cls: "badge-absolute" }
-        ],
-        eval: (v) => {
-          if (v >= 78) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 75) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 70) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 68) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 66) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "SP.DYN.LE00.MA.IN",
-        name: "Очікувана тривалість життя (чоловіки)",
-        code: "ТЖ (чоловіки)",
-        unit: "років",
-        source: "World Bank (SP.DYN.LE00.MA.IN)",
-        sourceUrl: "https://data.worldbank.org/indicator/SP.DYN.LE00.MA.IN",
-        formula: "Розрахунок Світового банку (років при народженні)",
-        meaning: "Індикатор життєздатності трудового потенціалу та соціально-економічного розвитку.",
-        intervals: [
-          { range: "≥ 78", level: "Оптимальний", cls: "badge-optimal" },
-          { range: "[75; 78)", level: "Задовільний", cls: "badge-satisfactory" },
-          { range: "[70; 75)", level: "Незадовільний", cls: "badge-unsatisfactory" },
-          { range: "[68; 70)", level: "Небезпечний", cls: "badge-danger" },
-          { range: "[66; 68)", level: "Критичний", cls: "badge-critical" },
-          { range: "< 66", level: "Абсолютна небезпека", cls: "badge-absolute" }
-        ],
-        eval: (v) => {
-          if (v >= 78) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 75) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 70) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 68) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 66) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "SP.DYN.IMRT.FE.IN",
-        name: "Дитяча смертність (дівчатка)",
-        code: "Смертність (дівч.)",
-        unit: "на 1 тис.",
-        source: "World Bank (SP.DYN.IMRT.FE.IN)",
-        sourceUrl: "https://data.worldbank.org/indicator/SP.DYN.IMRT.FE.IN",
-        formula: "Кількість померлих дітей до 1 року на 1000 живонароджених",
-        meaning: "Чутливий індикатор медичного обслуговування, материнства та дитинства.",
-        intervals: [
-          { range: "≤ 4", level: "Оптимальний", cls: "badge-optimal" },
-          { range: "(4; 5]", level: "Задовільний", cls: "badge-satisfactory" },
-          { range: "(5; 7]", level: "Незадовільний", cls: "badge-unsatisfactory" },
-          { range: "(7; 9]", level: "Небезпечний", cls: "badge-danger" },
-          { range: "(9; 11]", level: "Критичний", cls: "badge-critical" },
-          { range: "> 11", level: "Абсолютна небезпека", cls: "badge-absolute" }
-        ],
-        eval: (v) => {
-          if (v <= 4) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 5) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 7) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 9) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 11) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "SP.POP.65UP.TO.ZS",
-        name: "Населення віком 65+ років",
-        code: "Частка 65+",
-        unit: "%",
-        source: "World Bank (SP.POP.65UP.TO.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/SP.POP.65UP.TO.ZS",
-        formula: "Частка населення віком 65 років і старше у загальній чисельності",
-        meaning: "Старіння нації, навантаження на пенсійну систему та соціальні фонди.",
-        intervals: [
-          { range: "[18; 20]", level: "Оптимальний", cls: "badge-optimal" },
-          { range: "[17; 18) | (20; 21]", level: "Задовільний", cls: "badge-satisfactory" },
-          { range: "[15; 17) | (21; 22]", level: "Незадовільний", cls: "badge-unsatisfactory" },
-          { range: "(22; 23]", level: "Небезпечний", cls: "badge-danger" },
-          { range: "(23; 25]", level: "Критичний", cls: "badge-critical" },
-          { range: "> 25", level: "Абсолютна небезпека", cls: "badge-absolute" }
-        ],
-        eval: (v) => {
-          if (v > 25) return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-          if (v > 23) return { name: "Критичний", cls: "badge-critical" };
-          if (v > 22) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v > 21) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v > 20) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 18) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 17) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 15) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          return { name: "Критичний / Небезпечний", cls: "badge-critical" };
-        }
-      },
-      {
-        id: "SP.POP.DPND",
-        name: "Демографічне навантаження на працездатне нас.",
-        code: "Навантаження",
-        unit: "%",
-        source: "World Bank (SP.POP.DPND)",
-        sourceUrl: "https://data.worldbank.org/indicator/SP.POP.DPND",
-        formula: "Кількість непрацездатних (молодше 15 та старше 64) на 100 осіб віком 15–64",
-        meaning: "Співвідношення споживачів та виробників матеріальних благ в економіці.",
-        intervals: [
-          { range: "[45; 50]", level: "Оптимальний", cls: "badge-optimal" },
-          { range: "(50; 51]", level: "Задовільний", cls: "badge-satisfactory" },
-          { range: "(51; 52]", level: "Незадовільний", cls: "badge-unsatisfactory" },
-          { range: "(52; 53]", level: "Небезпечний", cls: "badge-danger" },
-          { range: "(53; 55]", level: "Критичний", cls: "badge-critical" },
-          { range: "> 55", level: "Абсолютна небезпека", cls: "badge-absolute" }
-        ],
-        eval: (v) => {
-          if (v > 55) return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-          if (v > 53) return { name: "Критичний", cls: "badge-critical" };
-          if (v > 52) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v > 51) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v > 50) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 45) return { name: "Оптимальний", cls: "badge-optimal" };
-          return { name: "Задовільний / Критичний", cls: "badge-satisfactory" };
-        }
-      }
-    ]
-  },
-
-  energy: {
-    title: "Енергетична безпека держави",
-    pageTitle: "Моніторинг Енергетичної Безпеки Держави",
-    shortTitle: "Енергетична безпека",
-    methodologyTitle: "Методологія та порогові інтервали: Енергетична безпека",
-    description: "Оцінка енергетичної незалежності, енергоємності ВВП та використання відновлюваних ресурсів.",
-    indicators: [
-      {
-        id: "EG.IMP.CONS.ZS",
-        name: "Частка власних джерел у балансі ПЕР",
-        code: "Власні джерела",
-        unit: "%",
-        source: "World Bank (EG.IMP.CONS.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/EG.IMP.CONS.ZS",
-        formula: "100 - Чистий імпорт енергії (% від використання енергії)",
-        transform: (v) => 100 - v,
-        intervals: [
-          { range: "≥ 80", level: "Оптимальний", cls: "badge-optimal" },
-          { range: "[70; 80)", level: "Задовільний", cls: "badge-satisfactory" },
-          { range: "[60; 70)", level: "Незадовільний", cls: "badge-unsatisfactory" },
-          { range: "[50; 60)", level: "Небезпечний", cls: "badge-danger" },
-          { range: "[40; 50)", level: "Критичний", cls: "badge-critical" },
-          { range: "< 40", level: "Абсолютна небезпека", cls: "badge-absolute" }
-        ],
-        eval: (v) => {
-          if (v >= 80) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 70) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 60) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 50) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 40) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "EG.EGY.PRIM.PP.KD",
-        name: "Енергоємність ВВП",
-        code: "Енергоємність",
-        unit: "МДж/$",
-        source: "World Bank (EG.EGY.PRIM.PP.KD)",
-        sourceUrl: "https://data.worldbank.org/indicator/EG.EGY.PRIM.PP.KD",
-        formula: "Споживання первинної енергії (МДж) на $1 ВВП за ПКС",
-        intervals: [
-          { range: "≤ 3", level: "Оптимальний", cls: "badge-optimal" },
-          { range: "(3; 4]", level: "Задовільний", cls: "badge-satisfactory" },
-          { range: "(4; 5]", level: "Незадовільний", cls: "badge-unsatisfactory" },
-          { range: "(5; 6]", level: "Небезпечний", cls: "badge-danger" },
-          { range: "(6; 8]", level: "Критичний", cls: "badge-critical" },
-          { range: "> 8", level: "Абсолютна небезпека", cls: "badge-absolute" }
-        ],
-        eval: (v) => {
-          if (v <= 3) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 4) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 5) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 6) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 8) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "EG.FEC.RNEW.ZS",
-        name: "Частка відновлюваної енергії",
-        code: "ВДЕ",
-        unit: "%",
-        source: "World Bank (EG.FEC.RNEW.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/EG.FEC.RNEW.ZS",
-        formula: "Частка ВДЕ у кінцевому споживанні енергії (%)",
-        intervals: [
-          { range: "≥ 30", level: "Оптимальний", cls: "badge-optimal" },
-          { range: "[20; 30)", level: "Задовільний", cls: "badge-satisfactory" },
-          { range: "[15; 20)", level: "Незадовільний", cls: "badge-unsatisfactory" },
-          { range: "[10; 15)", level: "Небезпечний", cls: "badge-danger" },
-          { range: "[5; 10)", level: "Критичний", cls: "badge-critical" },
-          { range: "< 5", level: "Абсолютна небезпека", cls: "badge-absolute" }
-        ],
-        eval: (v) => {
-          if (v >= 30) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 20) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 15) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 10) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 5) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "EG.ELC.LOSS.ZS",
-        name: "Втрати електроенергії в мережах",
-        code: "Втрати мереж",
-        unit: "%",
-        source: "World Bank (EG.ELC.LOSS.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/EG.ELC.LOSS.ZS",
-        formula: "Втрати при передачі та розподілі електроенергії (% від виробленої)",
-        intervals: [
-          { range: "≤ 5", level: "Оптимальний", cls: "badge-optimal" },
-          { range: "(5; 7]", level: "Задовільний", cls: "badge-satisfactory" },
-          { range: "(7; 10]", level: "Незадовільний", cls: "badge-unsatisfactory" },
-          { range: "(10; 15]", level: "Небезпечний", cls: "badge-danger" },
-          { range: "(15; 20]", level: "Критичний", cls: "badge-critical" },
-          { range: "> 20", level: "Абсолютна небезпека", cls: "badge-absolute" }
-        ],
-        eval: (v) => {
-          if (v <= 5) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 7) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 10) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 15) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 20) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      }
-    ]
-  },
-
-  prod: {
-    title: "Виробнича безпека держави",
-    pageTitle: "Моніторинг Виробничої Безпеки Держави",
-    shortTitle: "Виробнича безпека",
-    methodologyTitle: "Методологія та порогові інтервали: Виробнича безпека",
-    description: "Моніторинг стійкості реального сектору економіки та продовольчої бази.",
-    indicators: [
-      {
-        id: "AG.YLD.CREL.KG",
-        name: "Урожайність зернових культур",
-        code: "Урожайність",
-        unit: "ц/га",
-        source: "World Bank (AG.YLD.CREL.KG)",
-        sourceUrl: "https://data.worldbank.org/indicator/AG.YLD.CREL.KG",
-        formula: "Збір зернових у перерахунку на центнери з гектара (кг/га / 100)",
-        transform: (v) => v / 100,
-        intervals: [
-          { range: "[45; 55]", level: "Оптимальний", cls: "badge-optimal" },
-          { range: "[35; 45) | (55; 75)", level: "Задовільний", cls: "badge-satisfactory" },
-          { range: "[25; 35) | [75; 95)", level: "Незадовільний", cls: "badge-unsatisfactory" },
-          { range: "[20; 25) | [95; 100]", level: "Небезпечний", cls: "badge-danger" },
-          { range: "< 20 | > 100", level: "Критичний / Абсолютна небезпека", cls: "badge-critical" }
-        ],
-        eval: (v) => {
-          if (v >= 45 && v <= 55) return { name: "Оптимальний", cls: "badge-optimal" };
-          if ((v >= 35 && v < 45) || (v > 55 && v < 75)) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if ((v >= 25 && v < 35) || (v >= 75 && v < 95)) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if ((v >= 20 && v < 25) || (v >= 95 && v <= 100)) return { name: "Небезпечний", cls: "badge-danger" };
-          return { name: "Критичний / Абсолютна небезпека", cls: "badge-critical" };
-        }
-      }
-    ]
-  },
-
-  invest: {
-    title: "Інвестиційно-інноваційна безпека держави",
-    pageTitle: "Моніторинг Інвестиційно-Інноваційної Безпеки Держави",
-    shortTitle: "Інвестиційно-інноваційна безпека",
-    methodologyTitle: "Методологія та порогові інтервали: Інвестиційно-інноваційна безпека",
-    description: "Оцінка інвестиційної активності, нагромадження основного капіталу, прямих іноземних інвестицій, науково-дослідних витрат (R&D), кадрового забезпечення науки та розвитку цифрового суспільства.",
-    indicators: [
-      {
-        id: "NE.GDI.FTOT.ZS",
-        name: "Валове нагромадження основного капіталу, % ВВП",
-        code: "ВНК",
-        unit: "% ВВП",
-        source: "World Bank WDI (NE.GDI.FTOT.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/NE.GDI.FTOT.ZS",
-        formula: "ВНК / ВВП × 100% (ВНК — валове нагромадження основного капіталу, ВВП — валовий внутрішній продукт)",
-        rule: "Більше — краще (стимулятор). Менше — гірше.",
-        meaning: "Відображає обсяг інвестицій в основний капітал відносно розміру економіки. Частка валового нагромадження основного капіталу у ВВП (дані World Bank). Вищі значення сприяють економічному зростанню, модернізації виробництва та підвищенню стійкості економіки.<br><span class=\"methodology-slogan\">💡 «Інвестиції сьогодні — стійка економіка завтра (Інвестиції → Розвиток → Економічна безпека)»</span>",
-        intervals: [
-          { range: "[30; ∞)", level: "Оптимальний", cls: "badge-optimal", note: "Високі темпи оновлення та модернізації виробництва" },
-          { range: "[25; 30)", level: "Задовільний", cls: "badge-satisfactory", note: "Стійке інвестування в реальний сектор економіки" },
-          { range: "[23; 25)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Повільні темпи оновлення основних засобів" },
-          { range: "[20; 23)", level: "Небезпечний", cls: "badge-danger", note: "Недостатнє відтворення основного капіталу" },
-          { range: "[18; 20)", level: "Критичний", cls: "badge-critical", note: "Загроза деіндустріалізації та морального зносу фондів" },
-          { range: "[0; 18)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Критично низький рівень капіталовкладень" }
-        ],
-        eval: (v) => {
-          if (v >= 30) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 25) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 23) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 20) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 18) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "BX.KLT.DINV.WD.GD.ZS",
-        name: "Чистий приріст прямих іноземних інвестицій до ВВП, %",
-        code: "ЧППІІ / ВВП",
-        unit: "%",
-        source: "World Bank WDI (BX.KLT.DINV.WD.GD.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/BX.KLT.DINV.WD.GD.ZS",
-        formula: "Kпп = (ЧППІІ / ВВП) × 100% (ЧППІІ — чистий приріст прямих іноземних інвестицій, ВВП — валовий внутрішній продукт)",
-        rule: "Більше — краще (стимулятор). Менше — гірше. Від'ємні значення свідчать про чисте вилучення ПІІ та належать до зони абсолютної небезпеки.",
-        meaning: "Відображає обсяг чистого припливу прямих іноземних інвестицій відносно розміру економіки. Чистий приплив ПІІ у % до ВВП (дані World Bank). Від'ємні значення свідчать про чисте вилучення або відтік капіталу з країни.<br><span class=\"methodology-slogan\">💡 «Прямі іноземні інвестиції — двигун розвитку (Більше інвестицій → Сильніша економіка → Безпечніше майбутнє)»</span>",
-        intervals: [
-          { range: "[7; ∞)", level: "Оптимальний", cls: "badge-optimal", note: "Високий рівень інвестиційної інтеграції у світовий ринок" },
-          { range: "[6; 7)", level: "Задовільний", cls: "badge-satisfactory", note: "Стабільна інвестиційна динаміка іноземного капіталу" },
-          { range: "[5; 6)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірний обсяг залучення прямих іноземних інвестицій" },
-          { range: "[4,5; 5)", level: "Небезпечний", cls: "badge-danger", note: "Низький рівень зацікавленості міжнародних інвесторів" },
-          { range: "[4; 4,5)", level: "Критичний", cls: "badge-critical", note: "Критично низький приплив прямих іноземних інвестицій" },
-          { range: "(-∞; 4)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Відтік (чисте вилучення) або гострий дефіцит іноземного капіталу" }
-        ],
-        eval: (v) => {
-          if (v >= 7) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 6) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 5) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 4.5) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 4) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "GB.XPD.RSDV.GD.ZS",
-        name: "Витрати на дослідження і розробки (R&D), % ВВП",
-        code: "R&D / ВВП",
-        unit: "% ВВП",
-        source: "World Bank WDI (GB.XPD.RSDV.GD.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/GB.XPD.RSDV.GD.ZS",
-        formula: "R&D = (Валові внутрішні витрати на дослідження і розробки / ВВП) × 100%",
-        rule: "Більше — краще (стимулятор). Менше — гірше.",
-        meaning: "Відображає обсяги інвестицій у науку та інновації, що визначають технологічний розвиток і конкурентоспроможність економіки. Включає поточні та капітальні витрати бізнесу, держави, вищої освіти та приватного некомерційного сектора. Прямий міжнародний аналог для відстеження інновацій.<br><span class=\"methodology-slogan\">💡 «Інновації створюють економічну стійкість (Більше інновацій → Сильніша економіка → Безпечніше майбутнє)»</span>",
-        intervals: [
-          { range: "[3,0; ∞)", level: "Оптимальний", cls: "badge-optimal", note: "Світове технологічне та інноваційне лідерство" },
-          { range: "[2,0; 3,0)", level: "Задовільний", cls: "badge-satisfactory", note: "Відповідність цільовим стратегічним орієнтирам ЄС" },
-          { range: "[1,5; 2,0)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Нижче середньоєвропейського рівня витрат на науку" },
-          { range: "[1,0; 1,5)", level: "Небезпечний", cls: "badge-danger", note: "Ризик втрати науково-технологічних компетенцій" },
-          { range: "[0,5; 1,0)", level: "Критичний", cls: "badge-critical", note: "Критичне недофінансування наукових досліджень" },
-          { range: "[0; 0,5)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Науково-технологічний занепад і деградація науки" }
-        ],
-        eval: (v) => {
-          if (v >= 3.0) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 2.0) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 1.5) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 1.0) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 0.5) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "SP.POP.SCIE.RD.P6",
-        name: "Кількість дослідників у сфері R&D (у повній зайнятості)",
-        code: "Дослідники R&D (FTE)",
-        unit: "осіб / 1 млн нас.",
-        source: "World Bank WDI (SP.POP.SCIE.RD.P6 / UNESCO UIS / SDG 9.5.2)",
-        sourceUrl: "https://data.worldbank.org/indicator/SP.POP.SCIE.RD.P6",
-        formula: "R = (Кількість дослідників у R&D (FTE) / Чисельність населення) × 1 000 000 (FTE — еквівалент повної зайнятості)",
-        rule: "Більше — краще (стимулятор). Менше — гірше.",
-        meaning: "Відображає забезпеченість економіки висококваліфікованими дослідниками, що визначає науково-технологічний потенціал, інноваційну здатність та довгострокову конкурентоспроможність. Міжнародно зіставний показник моніторингу Цілей сталого розвитку ООН (SDG 9.5.2).<br><span class=\"methodology-slogan\">💡 «Людський капітал для інноваційного розвитку (Researchers in full-time)»</span>",
-        intervals: [
-          { range: "[4 000; ∞)", level: "Оптимальний", cls: "badge-optimal", note: "Високий інтелектуальний потенціал та наукова база" },
-          { range: "[2 500; 4 000)", level: "Задовільний", cls: "badge-satisfactory", note: "Достатня забезпеченість економіки фахівцями R&D" },
-          { range: "[1 500; 2 500)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірний рівень кадрового забезпечення науки" },
-          { range: "[1 000; 1 500)", level: "Небезпечний", cls: "badge-danger", note: "Зниження частки вчених у структурі зайнятості" },
-          { range: "[500; 1 000)", level: "Критичний", cls: "badge-critical", note: "Вимивання інтелектуального капіталу, відтік кадрів" },
-          { range: "[0; 500)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Критичний дефіцит дослідників, руйнація наукових шкіл" }
-        ],
-        eval: (v) => {
-          if (v >= 4000) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 2500) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 1500) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 1000) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 500) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "IT.NET.USER.ZS",
-        name: "Частка населення, яке користується Інтернетом, %",
-        code: "Інтернет-користувачі",
-        unit: "%",
-        source: "World Bank WDI (IT.NET.USER.ZS / ITU)",
-        sourceUrl: "https://data.worldbank.org/indicator/IT.NET.USER.ZS",
-        formula: "I = (Кількість користувачів Інтернету за ост. 3 міс. / Чисельність населення) × 100% (за методологією ITU)",
-        rule: "Більше — краще (стимулятор). Менше — гірше.",
-        meaning: "Відображає рівень цифрової інклюзії, доступ населення до інформації, знань, електронних послуг і можливості для економічного, соціального та інноваційного розвитку. Глобально зіставний показник цифрової трансформації Світового банку та ITU.<br><span class=\"methodology-slogan\">💡 «Доступ → Знання → Інновації → Конкурентоспроможність. Цифрове суспільство — сильніша економіка!»</span>",
-        intervals: [
-          { range: "[95; 100]", level: "Оптимальний", cls: "badge-optimal", note: "Суцільне цифрове покриття та висока цифрова культура" },
-          { range: "[85; 95)", level: "Задовільний", cls: "badge-satisfactory", note: "Високий рівень цифрової інклюзії населення" },
-          { range: "[75; 85)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірне охоплення мережею інтернет" },
-          { range: "[60; 75)", level: "Небезпечний", cls: "badge-danger", note: "Суттєвий цифровий розрив між верствами населення" },
-          { range: "[40; 60)", level: "Критичний", cls: "badge-critical", note: "Низький доступ до сучасних інформаційних технологій" },
-          { range: "[0; 40)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Цифрова ізоляція та глибока інформаційна нерівність" }
-        ],
-        eval: (v) => {
-          if (v >= 95) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 85) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 75) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 60) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 40) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      }
-    ]
-  },
-
-  macro: {
-    title: "Макроекономічна безпека держави",
-    pageTitle: "Моніторинг Макроекономічної Безпеки Держави",
-    shortTitle: "Макроекономічна безпека",
-    methodologyTitle: "Методологія та порогові інтервали: Макроекономічна безпека",
-    description: "Оцінка розміру тіньової економіки, стабільності платіжного балансу, рівня безробіття, інфляційних процесів та валових заощаджень.",
-    indicators: [
-      {
-        id: "WE.SHADOW.GDP",
-        name: "Розмір тіньової економіки, % офіційного ВВП",
-        code: "SE",
-        unit: "% офіц. ВВП",
-        source: "World Economics. Informal Economy Size (% of GDP)",
-        sourceUrl: "https://www.worldeconomics.com/Informal-Economy/",
-        formula: "SE = (Оцінений обсяг тіньової економіки / Офіційний ВВП) × 100%",
-        rule: "Менше — краще (дестимулятор). Чим менше значення, тим вищий рівень безпеки.",
-        meaning: "Відображає оціночний обсяг неформальної (тіньової) економічної діяльності, який не враховується офіційною статистикою, у відсотках до офіційного ВВП (модельна оцінка MIMIC/World Economics).<br><span class=\"methodology-slogan\">💡 «Зменшення тінізації — основа легального економічного зростання»</span>",
-        intervals: [
-          { range: "[0; 13]", level: "Оптимальний", cls: "badge-optimal", note: "Низький рівень тіньової економіки, мінімальні ризики" },
-          { range: "(13; 18]", level: "Задовільний", cls: "badge-satisfactory", note: "Помірний рівень, контрольовані ризики" },
-          { range: "(18; 22]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Відчутний рівень тінізації, зростання ризиків" },
-          { range: "(22; 25]", level: "Небезпечний", cls: "badge-danger", note: "Високий рівень, значні загрози безпеці" },
-          { range: "(25; 30]", level: "Критичний", cls: "badge-critical", note: "Дуже високий рівень, серйозні ризики" },
-          { range: "(30; ∞)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Надмірний рівень тінізації, критичні загрози" }
-        ],
-        eval: (v) => {
-          if (v <= 13) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 18) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 22) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 25) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 30) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "BN.CAB.XOKA.GD.ZS",
-        name: "Сальдо поточного рахунку платіжного балансу, % ВВП",
-        code: "CA",
-        unit: "% ВВП",
-        source: "World Bank WDI (BN.CAB.XOKA.GD.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/BN.CAB.XOKA.GD.ZS",
-        formula: "CA = (Сальдо поточного рахунку / ВВП) × 100%",
-        rule: "Стимулятор зі збалансованим оптимумом [-1,5; 1,5]%. Як дефіцит, так і надмірний профіцит можуть свідчити про ризики.",
-        meaning: "Відображає баланс зовнішньоекономічних операцій з товарами, послугами, первинними та вторинними доходами відносно ВВП. Позитивне значення — профіцит, негативне — дефіцит.<br><span class=\"methodology-slogan\">💡 «Збалансований поточний рахунок — макроекономічна стабільність»</span>",
-        intervals: [
-          { range: "[-1,5; 1,5]", level: "Оптимальний", cls: "badge-optimal", note: "Збалансований зовнішньоекономічний обмін" },
-          { range: "[-3; -1,5) | (1,5; 3]", level: "Задовільний", cls: "badge-satisfactory", note: "Помірний та контрольований дисбаланс" },
-          { range: "[-4; -3) | (3; 5]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Зростання дефіциту або надлишковий профіцит" },
-          { range: "[-5; -4) | (5; 7]", level: "Небезпечний", cls: "badge-danger", note: "Відчутний тиск на валютний курс та резерви" },
-          { range: "[-7; -5) | (7; 10]", level: "Критичний", cls: "badge-critical", note: "Критичний дисбаланс платіжних потоків" },
-          { range: "(-∞; -7) | (10; ∞)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Шоковий дефіцит або екстремальний дисбаланс" }
-        ],
-        eval: (v) => {
-          if (v >= -1.5 && v <= 1.5) return { name: "Оптимальний", cls: "badge-optimal" };
-          if ((v >= -3 && v < -1.5) || (v > 1.5 && v <= 3)) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if ((v >= -4 && v < -3) || (v > 3 && v <= 5)) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if ((v >= -5 && v < -4) || (v > 5 && v <= 7)) return { name: "Небезпечний", cls: "badge-danger" };
-          if ((v >= -7 && v < -5) || (v > 7 && v <= 10)) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "SL.UEM.TOTL.ZS",
-        name: "Рівень безробіття, % робочої сили",
-        code: "U",
-        unit: "% робочої сили",
-        source: "World Bank WDI (SL.UEM.TOTL.ZS / ILO)",
-        sourceUrl: "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS",
-        formula: "U = (Кількість безробітних / Чисельність робочої сили) × 100% (МОП, 15+ років)",
-        rule: "Менше — краще (дестимулятор). Менше значення — кращий рівень безпеки.",
-        meaning: "Відображає частку робочої сили, яка не має роботи, доступна для роботи та активно її шукає. Високий рівень свідчить про недовикористання трудового потенціалу та соціально-економічні ризики.<br><span class=\"methodology-slogan\">💡 «Зайнятість населення — соціальний мир та зростання ВВП»</span>",
-        intervals: [
-          { range: "[0; 5]", level: "Оптимальний", cls: "badge-optimal", note: "Природний рівень повної зайнятості" },
-          { range: "(5; 6]", level: "Задовільний", cls: "badge-satisfactory", note: "Помірний рівень безробіття" },
-          { range: "(6; 7]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Підвищена напруга на ринку праці" },
-          { range: "(7; 8]", level: "Небезпечний", cls: "badge-danger", note: "Значний дефіцит робочих місць" },
-          { range: "(8; 9]", level: "Критичний", cls: "badge-critical", note: "Високий рівень соціально-економічних ризиків" },
-          { range: "(9; 100]", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Масове безробіття, втрата трудового потенціалу" }
-        ],
-        eval: (v) => {
-          if (v <= 5) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 6) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 7) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 8) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 9) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "FP.CPI.TOTL.ZG",
-        name: "Рівень інфляції (зміна індексу споживчих цін), %",
-        code: "π (CPI)",
-        unit: "% річних",
-        source: "World Bank WDI (FP.CPI.TOTL.ZG)",
-        sourceUrl: "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG",
-        formula: "π = ((CPIt - CPIt-1) / CPIt-1) × 100% (річна зміна індексу споживчих цін)",
-        rule: "Дестимулятор відхилень (оптимальний діапазон [2; 3]%). Як дефляція, так і надмірна інфляція несуть загрози.",
-        meaning: "Відображає темп зростання загального рівня цін на товари та послуги, які споживають домогосподарства. Помірна інфляція є ознакою стабільності, тоді як дефляція або гіперінфляція руйнують економічну стійкість.<br><span class=\"methodology-slogan\">💡 «Цінова стабільність — збереження заощаджень та купівельної спроможності»</span>",
-        intervals: [
-          { range: "[2; 3]", level: "Оптимальний", cls: "badge-optimal", note: "Оптимальний таргет стабільності цін" },
-          { range: "[1; 2) | (3; 4]", level: "Задовільний", cls: "badge-satisfactory", note: "Низькі контрольовані коливання цін" },
-          { range: "[-0,5; 1) | (4; 5]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірний інфляційний тиск або субдефляція" },
-          { range: "[-1; -0,5) | (5; 8]", level: "Небезпечний", cls: "badge-danger", note: "Помітна інфляція або дефляційні ризики" },
-          { range: "[-2; -1) | (8; 12]", level: "Критичний", cls: "badge-critical", note: "Висока інфляція або затяжна дефляція" },
-          { range: "(-∞; -2) | (12; ∞)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Гіперінфляційний шок або дефляційна спіраль" }
-        ],
-        eval: (v) => {
-          if (v >= 2 && v <= 3) return { name: "Оптимальний", cls: "badge-optimal" };
-          if ((v >= 1 && v < 2) || (v > 3 && v <= 4)) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if ((v >= -0.5 && v < 1) || (v > 4 && v <= 5)) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if ((v >= -1 && v < -0.5) || (v > 5 && v <= 8)) return { name: "Небезпечний", cls: "badge-danger" };
-          if ((v >= -2 && v < -1) || (v > 8 && v <= 12)) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "NY.GNS.ICTR.GN.ZS",
-        name: "Валові заощадження, % ВНД",
-        code: "GS",
-        unit: "% ВНД",
-        source: "World Bank WDI (NY.GNS.ICTR.GN.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/NY.GNS.ICTR.GN.ZS",
-        formula: "GS = (Валові заощадження / ВНД) × 100%",
-        rule: "Показник із центральним оптимумом [30; 35]%. Як надто низькі, так і надто високі значення знижують безпеку.",
-        meaning: "Відображає частку національного доходу, яка не використовується на кінцеве споживання і спрямовується на нагромадження та формування фінансових активів.<br><span class=\"methodology-slogan\">💡 «Внутрішні заощадження — фундамент інвестиційної автономії»</span>",
-        intervals: [
-          { range: "[30; 35]", level: "Оптимальний", cls: "badge-optimal", note: "Оптимальний баланс споживання та нагромадження" },
-          { range: "[25; 30) | (35; 40]", level: "Задовільний", cls: "badge-satisfactory", note: "Стійка норма заощаджень" },
-          { range: "[20; 25) | (40; 45]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірне відхилення від збалансованого рівня" },
-          { range: "[15; 20) | (45; 50]", level: "Небезпечний", cls: "badge-danger", note: "Недостатність внутрішніх інвестиційних ресурсів" },
-          { range: "[10; 15) | (50; 55]", level: "Критичний", cls: "badge-critical", note: "Критичний дефіцит накопичень" },
-          { range: "(-∞; 10) | (55; ∞)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Проїдання капіталу або аномальне пригнічення споживання" }
-        ],
-        eval: (v) => {
-          if (v >= 30 && v <= 35) return { name: "Оптимальний", cls: "badge-optimal" };
-          if ((v >= 25 && v < 30) || (v > 35 && v <= 40)) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if ((v >= 20 && v < 25) || (v > 40 && v <= 45)) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if ((v >= 15 && v < 20) || (v > 45 && v <= 50)) return { name: "Небезпечний", cls: "badge-danger" };
-          if ((v >= 10 && v < 15) || (v > 50 && v <= 55)) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      }
-    ]
-  },
-
-  financial: {
-    title: "Фінансова безпека держави",
-    pageTitle: "Моніторинг Фінансової Безпеки Держави",
-    shortTitle: "Фінансова безпека",
-    methodologyTitle: "Методологія та порогові інтервали: Фінансова безпека",
-    description: "Оцінка боргового навантаження центрального уряду (% ВВП) та достатності валових міжнародних резервів у місяцях покриття імпорту.",
-    indicators: [
-      {
-        id: "GC.DOD.TOTL.GD.ZS",
-        name: "Загальний обсяг боргу центрального уряду, % ВВП",
-        code: "Борг уряду",
-        unit: "% ВВП",
-        source: "World Bank WDI (GC.DOD.TOTL.GD.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/GC.DOD.TOTL.GD.ZS",
-        formula: "Борг = (Загальний борг центрального уряду / ВВП) × 100%",
-        rule: "Менше — краще (дестимулятор). Високий борг звужує фіскальний простір.",
-        meaning: "Відображає загальний обсяг внутрішнього та зовнішнього боргу центрального уряду у відсотках до ВВП. Високий рівень боргу обмежує фіскальну політику та створює ризики дефолту.<br><span class=\"methodology-slogan\">💡 «Контрольований держборг — основа фіскального суверенітету»</span>",
-        intervals: [
-          { range: "[0; 20]", level: "Оптимальний", cls: "badge-optimal", note: "Низьке боргове навантаження, висока фіскальна стійкість" },
-          { range: "(20; 30]", level: "Задовільний", cls: "badge-satisfactory", note: "Помірний безпечний рівень державного боргу" },
-          { range: "(30; 40]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Зростання витрат на обслуговування боргу" },
-          { range: "(40; 50]", level: "Небезпечний", cls: "badge-danger", note: "Підвищена вразливість державних фінансів" },
-          { range: "(50; 60]", level: "Критичний", cls: "badge-critical", note: "Наближення до критичної маастрихтської межі 60%" },
-          { range: "(60; ∞)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Боргова яма, загроза втрати платоспроможності" }
-        ],
-        eval: (v) => {
-          if (v <= 20) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 30) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 40) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 50) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 60) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "FI.RES.TOTL.MO",
-        name: "Валові міжнародні резерви, місяців імпорту",
-        code: "Резерви (міс.)",
-        unit: "місяців",
-        source: "World Bank WDI (FI.RES.TOTL.MO)",
-        sourceUrl: "https://data.worldbank.org/indicator/FI.RES.TOTL.MO",
-        formula: "Резерви (міс.) = Міжнародні резерви / (Річний імпорт / 12)",
-        rule: "Більше — краще (стимулятор). Міжнародний критерій достатності Редді — від 3 місяців.",
-        meaning: "Показує, на скільки місяців імпорту товарів і послуг вистачило б міжнародних резервів країни за поточних обсягів імпорту.<br><span class=\"methodology-slogan\">💡 «Міжнародні резерви — валютна подушка безпеки держави»</span>",
-        intervals: [
-          { range: "[5; ∞)", level: "Оптимальний", cls: "badge-optimal", note: "Високий рівень достатності резервів, стабільність гривні" },
-          { range: "[3; 5)", level: "Задовільний", cls: "badge-satisfactory", note: "Відповідність міжнародному критерію достатності (≥3 міс.)" },
-          { range: "[2,5; 3)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Нижче безпечного міжнародного порогу" },
-          { range: "[2; 2,5)", level: "Небезпечний", cls: "badge-danger", note: "Загроза девальвації валюти та валютних шоків" },
-          { range: "[1,5; 2)", level: "Критичний", cls: "badge-critical", note: "Гострий дефіцит резервів" },
-          { range: "[0; 1,5)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Вичерпання валютної ліквідності, загроза дефолту" }
-        ],
-        eval: (v) => {
-          if (v >= 5) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 3) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 2.5) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 2.0) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 1.5) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      }
-    ]
-  },
-
-  food: {
-    title: "Продовольча безпека держави",
-    pageTitle: "Моніторинг Продовольчої Безпеки Держави",
-    shortTitle: "Продовольча безпека",
-    methodologyTitle: "Методологія та порогові інтервали: Продовольча безпека",
-    description: "Оцінка середньої добової забезпеченості харчовою енергією, рівня самозабезпеченості основними продуктами харчування (м'ясо, молоко, яйця, олія, цукор, картопля) та виробництва зерна на особу.",
-    indicators: [
-      {
-        id: "FOOD.KCAL_DAY",
-        name: "Середня добова забезпеченість харчовою енергією",
-        code: "Енергія (ккал)",
-        unit: "ккал/особу",
-        source: "FAOSTAT / World Bank (Food balances)",
-        sourceUrl: "https://www.fao.org/faostat/en/#data/FBS",
-        formula: "Доступна кількість калорій на одну особу за добу (ккал/особу/добу)",
-        rule: "Центральний оптимум [3100; 3400] ккал. Недостатність — недоїдання; надмірність — хронічні захворювання.",
-        meaning: "Характеризує середню кількість калорій, доступних на одну особу за добу, відображаючи фізичну доступність харчової енергії для населення.<br><span class=\"methodology-slogan\">💡 «Повноцінне харчування — здоров'я нації та продуктивність праці»</span>",
-        intervals: [
-          { range: "[3100; 3400]", level: "Оптимальний", cls: "badge-optimal", note: "Баланс потреб і мінімальні ризики для здоров'я" },
-          { range: "[2900; 3100) | (3400; 3600]", level: "Задовільний", cls: "badge-satisfactory", note: "Низький ризик дисбалансу харчування" },
-          { range: "[2700; 2900) | (3600; 3800]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Ризик недостатнього або надмірного споживання" },
-          { range: "[2500; 2700) | (3800; 4000]", level: "Небезпечний", cls: "badge-danger", note: "Дефіцит поживних речовин або ризик ожиріння" },
-          { range: "[2250; 2500) | (4000; 4200]", level: "Критичний", cls: "badge-critical", note: "Виражене недоїдання або високий ризик супутніх хвороб" },
-          { range: "< 2250 | > 4200", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Масове недоїдання (голод) або екстремальні ризики" }
-        ],
-        eval: (v) => {
-          if (v >= 3100 && v <= 3400) return { name: "Оптимальний", cls: "badge-optimal" };
-          if ((v >= 2900 && v < 3100) || (v > 3400 && v <= 3600)) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if ((v >= 2700 && v < 2900) || (v > 3600 && v <= 3800)) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if ((v >= 2500 && v < 2700) || (v > 3800 && v <= 4000)) return { name: "Небезпечний", cls: "badge-danger" };
-          if ((v >= 2250 && v < 2500) || (v > 4000 && v <= 4200)) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "FOOD.SELF.PORK",
-        name: "Самозабезпеченість м'ясом (свинина), %",
-        code: "K (свинина)",
-        unit: "%",
-        source: "FAOSTAT Food balances",
-        sourceUrl: "https://www.fao.org/faostat/en/#data/FBS",
-        formula: "K = (Виробництво / (Виробництво + Імпорт - Експорт)) × 100%",
-        rule: "Більше — краще (стимулятор). K=100% — баланс, K<100% — дефіцит та залежність, K>100% — експорт.",
-        meaning: "Відображає рівень самозабезпеченості свининою та захищеність внутрішнього ринку від зовнішніх продовольчих шоків.<br><span class=\"methodology-slogan\">💡 «Власне виробництво м'яса — продовольча автономія країни»</span>",
-        intervals: [
-          { range: "[105; ∞)", level: "Оптимальний", cls: "badge-optimal", note: "Надлишок виробництва, експортний потенціал" },
-          { range: "[95; 105)", level: "Задовільний", cls: "badge-satisfactory", note: "Повне забезпечення внутрішнього споживання" },
-          { range: "[90; 95)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірна залежність від імпорту" },
-          { range: "[85; 90)", level: "Небезпечний", cls: "badge-danger", note: "Відчутний дефіцит вітчизняного виробництва" },
-          { range: "[80; 85)", level: "Критичний", cls: "badge-critical", note: "Висока імпортозалежність, ризик зростання цін" },
-          { range: "[0; 80)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Критична продовольча незахищеність" }
-        ],
-        eval: (v) => {
-          if (v >= 105) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 95) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 90) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 85) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 80) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "FOOD.SELF.MILK",
-        name: "Самозабезпеченість молоком і молочними продуктами, %",
-        code: "K (молоко)",
-        unit: "%",
-        source: "FAOSTAT Food balances",
-        sourceUrl: "https://www.fao.org/faostat/en/#data/FBS",
-        formula: "K = (Виробництво / Внутрішнє споживання) × 100% (у перерахунку на молоко)",
-        rule: "Більше — краще (стимулятор).",
-        meaning: "Відображає рівень забезпечення населення молочною продукцією власного виробництва.<br><span class=\"methodology-slogan\">💡 «Молочна галузь — стратегічна основа раціону населення»</span>",
-        intervals: [
-          { range: "[105; ∞)", level: "Оптимальний", cls: "badge-optimal", note: "Надлишок виробництва, експортний потенціал" },
-          { range: "[95; 105)", level: "Задовільний", cls: "badge-satisfactory", note: "Повне забезпечення внутрішнього споживання" },
-          { range: "[90; 95)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірна залежність від імпорту" },
-          { range: "[85; 90)", level: "Небезпечний", cls: "badge-danger", note: "Відчутний дефіцит вітчизняного виробництва" },
-          { range: "[80; 85)", level: "Критичний", cls: "badge-critical", note: "Висока імпортозалежність" },
-          { range: "[0; 80)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Критична продовольча незахищеність" }
-        ],
-        eval: (v) => {
-          if (v >= 105) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 95) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 90) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 85) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 80) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "FOOD.SELF.EGGS",
-        name: "Самозабезпеченість яйцями, %",
-        code: "K (яйця)",
-        unit: "%",
-        source: "FAOSTAT Food balances",
-        sourceUrl: "https://www.fao.org/faostat/en/#data/FBS",
-        formula: "K = (Виробництво / Внутрішнє споживання) × 100% (курячі яйця)",
-        rule: "Більше — краще (стимулятор).",
-        meaning: "Відображає рівень самозабезпеченості країни курячими яйцями.<br><span class=\"methodology-slogan\">💡 «Птахівництво — швидке відновлення та експортні валютні надходження»</span>",
-        intervals: [
-          { range: "[105; ∞)", level: "Оптимальний", cls: "badge-optimal", note: "Надлишок виробництва, експортний потенціал" },
-          { range: "[95; 105)", level: "Задовільний", cls: "badge-satisfactory", note: "Повне забезпечення споживання" },
-          { range: "[90; 95)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірна залежність від імпорту" },
-          { range: "[85; 90)", level: "Небезпечний", cls: "badge-danger", note: "Дефіцит власного виробництва" },
-          { range: "[80; 85)", level: "Критичний", cls: "badge-critical", note: "Висока імпортозалежність" },
-          { range: "[0; 80)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Критична незахищеність" }
-        ],
-        eval: (v) => {
-          if (v >= 105) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 95) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 90) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 85) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 80) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "FOOD.SELF.OIL",
-        name: "Самозабезпеченість соняшниковою олією, %",
-        code: "K (олія)",
-        unit: "%",
-        source: "FAOSTAT Food balances",
-        sourceUrl: "https://www.fao.org/faostat/en/#data/FBS",
-        formula: "K = (Виробництво / Внутрішнє споживання) × 100%",
-        rule: "Більше — краще (стимулятор). Україна є світовим лідером експорту.",
-        meaning: "Рівень забезпечення соняшниковою олією. Значення значно перевищують 100% завдяки глобальному експортному лідерству.<br><span class=\"methodology-slogan\">💡 «Олійно-жирова галузь — глобальне лідерство та продовольча могутність»</span>",
-        intervals: [
-          { range: "[105; ∞)", level: "Оптимальний", cls: "badge-optimal", note: "Глобальний експортний надлишок" },
-          { range: "[95; 105)", level: "Задовільний", cls: "badge-satisfactory", note: "Повний баланс споживання" },
-          { range: "[90; 95)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірна імпортозалежність" },
-          { range: "[85; 90)", level: "Небезпечний", cls: "badge-danger", note: "Дефіцит продукції" },
-          { range: "[80; 85)", level: "Критичний", cls: "badge-critical", note: "Висока імпортозалежність" },
-          { range: "[0; 80)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Гострий дефіцит" }
-        ],
-        eval: (v) => {
-          if (v >= 105) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 95) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 90) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 85) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 80) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "FOOD.SELF.SUGAR",
-        name: "Самозабезпеченість цукром, %",
-        code: "K (цукор)",
-        unit: "%",
-        source: "FAOSTAT Food balances",
-        sourceUrl: "https://www.fao.org/faostat/en/#data/FBS",
-        formula: "K = (Виробництво / Внутрішнє споживання) × 100% (цукор-сирець)",
-        rule: "Більше — краще (стимулятор).",
-        meaning: "Відображає рівень забезпечення внутрішнього ринку цукром власного виробництва.<br><span class=\"methodology-slogan\">💡 «Цукрова галузь — стабільність переробної індустрії»</span>",
-        intervals: [
-          { range: "[105; ∞)", level: "Оптимальний", cls: "badge-optimal", note: "Повна самодостатність та експорт" },
-          { range: "[95; 105)", level: "Задовільний", cls: "badge-satisfactory", note: "Баланс споживання" },
-          { range: "[90; 95)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірна залежність" },
-          { range: "[85; 90)", level: "Небезпечний", cls: "badge-danger", note: "Дефіцит цукру" },
-          { range: "[80; 85)", level: "Критичний", cls: "badge-critical", note: "Висока імпортозалежність" },
-          { range: "[0; 80)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Критична незахищеність" }
-        ],
-        eval: (v) => {
-          if (v >= 105) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 95) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 90) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 85) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 80) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "FOOD.SELF.POTATO",
-        name: "Самозабезпеченість картоплею, %",
-        code: "K (картопля)",
-        unit: "%",
-        source: "FAOSTAT Food balances",
-        sourceUrl: "https://www.fao.org/faostat/en/#data/FBS",
-        formula: "K = (Виробництво / Внутрішнє споживання) × 100%",
-        rule: "Більше — краще (стимулятор).",
-        meaning: "Рівень забезпечення населення стратегічним продуктом харчування — картоплею.<br><span class=\"methodology-slogan\">💡 «Картоплярство — другий хліб та продовольча опора домогосподарств»</span>",
-        intervals: [
-          { range: "[105; ∞)", level: "Оптимальний", cls: "badge-optimal", note: "Повне самозабезпечення" },
-          { range: "[95; 105)", level: "Задовільний", cls: "badge-satisfactory", note: "Збалансоване споживання" },
-          { range: "[90; 95)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірна залежність" },
-          { range: "[85; 90)", level: "Небезпечний", cls: "badge-danger", note: "Дефіцит вітчизняної картоплі" },
-          { range: "[80; 85)", level: "Критичний", cls: "badge-critical", note: "Висока імпортозалежність" },
-          { range: "[0; 80)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Критичний дефіцит" }
-        ],
-        eval: (v) => {
-          if (v >= 105) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 95) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 90) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 85) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 80) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "CALC.GRAIN_PER_CAPITA",
-        name: "Виробництво зерна на одну особу на рік, тонн",
-        code: "G (зерно)",
-        unit: "тонн / особу",
-        source: "World Bank WDI (AG.PRD.CREL.MT / SP.POP.TOTL)",
-        sourceUrl: "https://data.worldbank.org/indicator/AG.PRD.CREL.MT",
-        deps: ["AG.PRD.CREL.MT", "SP.POP.TOTL"],
-        formula: "G = Виробництво зерна (AG.PRD.CREL.MT) / Населення (SP.POP.TOTL)",
-        rule: "Більше — краще (стимулятор). Оптимальний рівень ≥ 1,0 тонни на особу.",
-        meaning: "Відображає кількість виробленого зерна в країні на одну особу за рік. Має стратегічне значення для економічної стійкості, тваринництва та експортного виторгу.<br><span class=\"methodology-slogan\">💡 «Зерновий потенціал — гарантія продовольчої та валютної стійкості»</span>",
-        compute: (cache, year) => {
-          const prod = cache["AG.PRD.CREL.MT"]?.[year];
-          const pop = cache["SP.POP.TOTL"]?.[year];
-          if (prod && pop && pop > 0) return prod / pop;
-          return undefined;
-        },
-        intervals: [
-          { range: "[1,0; ∞)", level: "Оптимальний", cls: "badge-optimal", note: "Високий експортний потенціал (≥ 1 т/особу)" },
-          { range: "[0,9; 1,0)", level: "Задовільний", cls: "badge-satisfactory", note: "Повне забезпечення внутрішніх потреб" },
-          { range: "[0,8; 0,9)", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірне виробництво зернових" },
-          { range: "[0,7; 0,8)", level: "Небезпечний", cls: "badge-danger", note: "Зниження запасів зерна" },
-          { range: "[0,6; 0,7)", level: "Критичний", cls: "badge-critical", note: "Критично низький рівень виробництва" },
-          { range: "[0; 0,6)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Загроза продовольчого дефіциту" }
-        ],
-        eval: (v) => {
-          if (v >= 1.0) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v >= 0.9) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v >= 0.8) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v >= 0.7) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v >= 0.6) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      }
-    ]
-  },
-
-  social: {
-    title: "Соціальна безпека держави",
-    pageTitle: "Моніторинг Соціальної Безпеки Держави",
-    shortTitle: "Соціальна безпека",
-    methodologyTitle: "Методологія та порогові інтервали: Соціальна безпека",
-    description: "Оцінка рівня бідності, нерівності доходів (децильний коефіцієнт), структури споживчих витрат на харчування, фінансування охорони здоров'я та освіти, захворюваності та зайнятості населення.",
-    indicators: [
-      {
-        id: "SI.POV.DDAY",
-        name: "Частка населення за межею крайньої бідності ($3,00/день), %",
-        code: "Бідність ($3/день)",
-        unit: "%",
-        source: "World Bank WDI (SI.POV.DDAY)",
-        sourceUrl: "https://data.worldbank.org/indicator/SI.POV.DDAY",
-        formula: "P = (Населення з доходами < $3,00 на день (ПКС 2021) / Чисельність населення) × 100%",
-        rule: "Менше — краще (дестимулятор). 3% — глобальний цільовий орієнтир Світового банку.",
-        meaning: "Відображає частку населення з доходами менше ніж $3,00 на день за ПКС 2021 року. Скорочення крайньої бідності — головна передумова сталого розвитку.<br><span class=\"methodology-slogan\">💡 «Подолання бідності — запорука людського розвитку та стабільності»</span>",
-        intervals: [
-          { range: "[0; 3]", level: "Оптимальний", cls: "badge-optimal", note: "Цільовий орієнтир Світового банку (≤3%)" },
-          { range: "(3; 5]", level: "Задовільний", cls: "badge-satisfactory", note: "Низький рівень соціальних ризиків бідності" },
-          { range: "(5; 10]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помітна поширеність бідності" },
-          { range: "(10; 20]", level: "Небезпечний", cls: "badge-danger", note: "Високий рівень крайньої бідності" },
-          { range: "(20; 40]", level: "Критичний", cls: "badge-critical", note: "Значна частина населення залишається вразливою" },
-          { range: "(40; 100]", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Масовий характер злиднів" }
-        ],
-        eval: (v) => {
-          if (v <= 3) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 5) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 10) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 20) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 40) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "CALC.D10_RATIO",
-        name: "Децильний коефіцієнт фондів (нерівність доходів), разів",
-        code: "D10",
-        unit: "разів",
-        source: "World Bank WDI (SI.DST.10TH.10 / SI.DST.FRST.10)",
-        sourceUrl: "https://data.worldbank.org/indicator/SI.DST.10TH.10",
-        deps: ["SI.DST.10TH.10", "SI.DST.FRST.10"],
-        formula: "D10 = Частка доходів 10% найбагатших / Частка доходів 10% найбідніших",
-        rule: "Менше — краще (дестимулятор нерівності).",
-        meaning: "Відображає, у скільки разів частка сукупних доходів найбільш забезпечених 10% населення перевищує частку найменш забезпечених 10%.<br><span class=\"methodology-slogan\">💡 «Збалансований розподіл доходів — соціальна згуртованість»</span>",
-        compute: (cache, year) => {
-          const high = cache["SI.DST.10TH.10"]?.[year];
-          const low = cache["SI.DST.FRST.10"]?.[year];
-          if (high && low && low > 0) return high / low;
-          return undefined;
-        },
-        intervals: [
-          { range: "[1; 4,5]", level: "Оптимальний", cls: "badge-optimal", note: "Низький рівень нерівності доходів" },
-          { range: "(4,5; 5]", level: "Задовільний", cls: "badge-satisfactory", note: "Помірний рівень нерівності" },
-          { range: "(5; 5,5]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Зростання соціальної диференціації" },
-          { range: "(5,5; 6]", level: "Небезпечний", cls: "badge-danger", note: "Високий рівень розриву в доходах" },
-          { range: "(6; 7]", level: "Критичний", cls: "badge-critical", note: "Дуже висока поляризація суспільства" },
-          { range: "(7; ∞)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Надмірна нерівність, загроза соціальної стабільності" }
-        ],
-        eval: (v) => {
-          if (v <= 4.5) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 5.0) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 5.5) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 6.0) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 7.0) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "SOC.FOOD_EXP",
-        name: "Частка витрат на харчування у споживчих витратах, %",
-        code: "Харчування (%)",
-        unit: "%",
-        source: "U.S. Department of Agriculture (USDA ERS)",
-        sourceUrl: "https://www.ers.usda.gov/data-products/international-food-and-alcoholic-beverage-expenditure-data",
-        formula: "Витрати на харчування вдома / Загальні споживчі витрати × 100%",
-        rule: "Менше — краще (дестимулятор, закон Енгеля). Чим менша частка, тим вищий добробут.",
-        meaning: "Відображає частку споживчих витрат населення на продукти харчування вдома. Зростання частки скорочує можливості для освіти, культури та заощаджень.<br><span class=\"methodology-slogan\">💡 «Зростання добробуту знижує тягар базових витрат на їжу»</span>",
-        intervals: [
-          { range: "[0; 20]", level: "Оптимальний", cls: "badge-optimal", note: "Високий матеріальний добробут (стандарт розвинених країн)" },
-          { range: "(20; 25]", level: "Задовільний", cls: "badge-satisfactory", note: "Помірний рівень витрат на їжу" },
-          { range: "(25; 30]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Зростання навантаження на сімейні бюджети" },
-          { range: "(30; 40]", level: "Небезпечний", cls: "badge-danger", note: "Значна частка доходів іде на виживання" },
-          { range: "(40; 50]", level: "Критичний", cls: "badge-critical", note: "Критичне навантаження, низький рівень життя" },
-          { range: "(50; 100]", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Понад половина бюджету витрачається на їжу" }
-        ],
-        eval: (v) => {
-          if (v <= 20) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 25) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 30) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 40) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 50) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "SH.XPD.GHED.GD.ZS",
-        name: "Внутрішні державні видатки на охорону здоров'я, % ВВП",
-        code: "Охорона здоров'я",
-        unit: "% ВВП",
-        source: "World Bank WDI (SH.XPD.GHED.GD.ZS / WHO)",
-        sourceUrl: "https://data.worldbank.org/indicator/SH.XPD.GHED.GD.ZS",
-        formula: "Державні видатки на охорону здоров'я / ВВП × 100%",
-        rule: "Оптимальний діапазон [7; 10]%. Недостатність погіршує доступність допомоги; надмірність свідчить про ресурсоємність.",
-        meaning: "Відображає внутрішні державні видатки на медицину у % до ВВП. Забезпечує міжнародну порівнянність фінансування сфери охорони здоров'я.<br><span class=\"methodology-slogan\">💡 «Здорова нація — основа економічного довголіття»</span>",
-        intervals: [
-          { range: "[7; 10]", level: "Оптимальний", cls: "badge-optimal", note: "Достатнє ресурсне забезпечення медицини" },
-          { range: "[6,5; 7) | (10; 12]", level: "Задовільний", cls: "badge-satisfactory", note: "Задовільний рівень фінансування" },
-          { range: "[5,5; 6,5) | (12; 15]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірне недофінансування або підвищена ресурсоємність" },
-          { range: "[4,5; 5,5) | (15; 20]", level: "Небезпечний", cls: "badge-danger", note: "Обмеження доступу населення до якісних медпослуг" },
-          { range: "[3; 4,5) | (20; 25]", level: "Критичний", cls: "badge-critical", note: "Критичне недофінансування галузі" },
-          { range: "< 3 | > 25", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Руйнація системи охорони здоров'я" }
-        ],
-        eval: (v) => {
-          if (v >= 7 && v <= 10) return { name: "Оптимальний", cls: "badge-optimal" };
-          if ((v >= 6.5 && v < 7) || (v > 10 && v <= 12)) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if ((v >= 5.5 && v < 6.5) || (v > 12 && v <= 15)) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if ((v >= 4.5 && v < 5.5) || (v > 15 && v <= 20)) return { name: "Небезпечний", cls: "badge-danger" };
-          if ((v >= 3 && v < 4.5) || (v > 20 && v <= 25)) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "SE.XPD.TOTL.GD.ZS",
-        name: "Державні видатки на освіту, % ВВП",
-        code: "Освіта (% ВВП)",
-        unit: "% ВВП",
-        source: "World Bank WDI (SE.XPD.TOTL.GD.ZS)",
-        sourceUrl: "https://data.worldbank.org/indicator/SE.XPD.TOTL.GD.ZS",
-        formula: "Загальні державні видатки на освіту / ВВП × 100%",
-        rule: "Оптимальний діапазон [7; 10]%.",
-        meaning: "Відображає частку державних видатків на освіту у ВВП та характеризує ресурси для розвитку людського капіталу.<br><span class=\"methodology-slogan\">💡 «Інвестиції в освіту — фундамент інноваційного майбутнього»</span>",
-        intervals: [
-          { range: "[7; 10]", level: "Оптимальний", cls: "badge-optimal", note: "Високий рівень розвитку людського капіталу" },
-          { range: "[6,5; 7) | (10; 12]", level: "Задовільний", cls: "badge-satisfactory", note: "Стабільне фінансування освітньої сфери" },
-          { range: "[5,5; 6,5) | (12; 15]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Помірне недофінансування навчальних закладів" },
-          { range: "[4,5; 5,5) | (15; 20]", level: "Небезпечний", cls: "badge-danger", note: "Ризик зниження якості освіти" },
-          { range: "[3; 4,5) | (20; 25]", level: "Критичний", cls: "badge-critical", note: "Критичний брак ресурсів освітньої галузі" },
-          { range: "< 3 | > 25", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Деградація системи підготовки кадрів" }
-        ],
-        eval: (v) => {
-          if (v >= 7 && v <= 10) return { name: "Оптимальний", cls: "badge-optimal" };
-          if ((v >= 6.5 && v < 7) || (v > 10 && v <= 12)) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if ((v >= 5.5 && v < 6.5) || (v > 12 && v <= 15)) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if ((v >= 4.5 && v < 5.5) || (v > 15 && v <= 20)) return { name: "Небезпечний", cls: "badge-danger" };
-          if ((v >= 3 && v < 4.5) || (v > 20 && v <= 25)) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "SH.HIV.INCD.TL.P3",
-        name: "Захворюваність на ВІЛ: нових випадків на 1000 населення",
-        code: "ВІЛ (на 1 тис.)",
-        unit: "на 1 тис.",
-        source: "World Bank WDI (SH.HIV.INCD.TL.P3)",
-        sourceUrl: "https://data.worldbank.org/indicator/SH.HIV.INCD.TL.P3",
-        formula: "Кількість нових випадків ВІЛ на 1 000 неінфікованих осіб",
-        rule: "Менше — краще (дестимулятор).",
-        meaning: "Кількість нових випадків інфікування ВІЛ на 1 000 осіб. Контроль над епідемією є ключовим для соціальної стабільності.<br><span class=\"methodology-slogan\">💡 «Контроль над інфекціями — збереження працездатності суспільства»</span>",
-        intervals: [
-          { range: "[0; 0,1]", level: "Оптимальний", cls: "badge-optimal", note: "Ефективний епідеміологічний контроль" },
-          { range: "(0,1; 0,2]", level: "Задовільний", cls: "badge-satisfactory", note: "Низький рівень поширення" },
-          { range: "(0,2; 0,5]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Зростання ризиків для громадського здоров'я" },
-          { range: "(0,5; 1,0]", level: "Небезпечний", cls: "badge-danger", note: "Підвищена захворюваність" },
-          { range: "(1,0; 2,0]", level: "Критичний", cls: "badge-critical", note: "Високий рівень поширення інфекції" },
-          { range: "(2,0; ∞)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Епідемічна загроза національного масштабу" }
-        ],
-        eval: (v) => {
-          if (v <= 0.1) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 0.2) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 0.5) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 1.0) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 2.0) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "SH.TBS.INCD",
-        name: "Захворюваність на туберкульоз, випадків на 100 тис. населення",
-        code: "Туберкульоз",
-        unit: "на 100 тис.",
-        source: "World Bank WDI (SH.TBS.INCD / WHO)",
-        sourceUrl: "https://data.worldbank.org/indicator/SH.TBS.INCD",
-        formula: "Нові та повторні випадки активного туберкульозу на 100 000 населення за рік",
-        rule: "Менше — краще (дестимулятор).",
-        meaning: "Відображає кількість випадків захворювання на активний туберкульоз на 100 тис. населення. Чутливий індикатор соціального благополуччя.<br><span class=\"methodology-slogan\">💡 «Зниження туберкульозу — маркер соціального благополуччя»</span>",
-        intervals: [
-          { range: "[0; 10]", level: "Оптимальний", cls: "badge-optimal", note: "Низький рівень захворюваності (рівень ЄС)" },
-          { range: "(10; 20]", level: "Задовільний", cls: "badge-satisfactory", note: "Контрольований стан громадського здоров'я" },
-          { range: "(20; 40]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Підвищена поширеність туберкульозу" },
-          { range: "(40; 60]", level: "Небезпечний", cls: "badge-danger", note: "Значний тягар для системи охорони здоров'я" },
-          { range: "(60; 80]", level: "Критичний", cls: "badge-critical", note: "Високий рівень захворюваності" },
-          { range: "(80; ∞)", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Епідемічний рівень поширення" }
-        ],
-        eval: (v) => {
-          if (v <= 10) return { name: "Оптимальний", cls: "badge-optimal" };
-          if (v <= 20) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if (v <= 40) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if (v <= 60) return { name: "Небезпечний", cls: "badge-danger" };
-          if (v <= 80) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      },
-      {
-        id: "SL.EMP.TOTL.SP.ZS",
-        name: "Рівень зайнятості населення (віком 15+ років), %",
-        code: "Зайнятість (15+)",
-        unit: "%",
-        source: "World Bank WDI (SL.EMP.TOTL.SP.ZS / ILO)",
-        sourceUrl: "https://data.worldbank.org/indicator/SL.EMP.TOTL.SP.ZS",
-        formula: "Зайняте населення 15+ / Загальна чисельність населення 15+ × 100%",
-        rule: "Оптимальний рівень [60; 70]%. Збалансована зайнятість — робота, освіта, догляд і гідне старіння.",
-        meaning: "Частка зайнятого населення віком 15 років і старше. Характеризує ефективне використання трудового потенціалу без примусової зайнятості.<br><span class=\"methodology-slogan\">💡 «Збалансована зайнятість — робота, освіта, догляд і гідне старіння»</span>",
-        intervals: [
-          { range: "[60; 70]", level: "Оптимальний", cls: "badge-optimal", note: "Збалансоване використання трудового потенціалу" },
-          { range: "[58; 60) | (70; 75]", level: "Задовільний", cls: "badge-satisfactory", note: "Стійка зайнятість населення" },
-          { range: "[55; 58) | (75; 80]", level: "Незадовільний", cls: "badge-unsatisfactory", note: "Недовикористання потенціалу або надмірне навантаження" },
-          { range: "[53; 55) | (80; 85]", level: "Небезпечний", cls: "badge-danger", note: "Зростання вимушеної зайнятості або безробіття" },
-          { range: "[50; 53) | (85; 90]", level: "Критичний", cls: "badge-critical", note: "Глибокий перекіс ринку праці" },
-          { range: "< 50 | > 90", level: "Абсолютна небезпека", cls: "badge-absolute", note: "Критичний спад зайнятості або відсутність соціального захисту" }
-        ],
-        eval: (v) => {
-          if (v >= 60 && v <= 70) return { name: "Оптимальний", cls: "badge-optimal" };
-          if ((v >= 58 && v < 60) || (v > 70 && v <= 75)) return { name: "Задовільний", cls: "badge-satisfactory" };
-          if ((v >= 55 && v < 58) || (v > 75 && v <= 80)) return { name: "Незадовільний", cls: "badge-unsatisfactory" };
-          if ((v >= 53 && v < 55) || (v > 80 && v <= 85)) return { name: "Небезпечний", cls: "badge-danger" };
-          if ((v >= 50 && v < 53) || (v > 85 && v <= 90)) return { name: "Критичний", cls: "badge-critical" };
-          return { name: "Абсолютна небезпека", cls: "badge-absolute" };
-        }
-      }
-    ]
-  }
-};
-
-let myChart = null;
-let currentDataset = [];
-
-// Константи та стан часового проміжку (обмеження: від 1 до 10 років)
-const MIN_AVAILABLE_YEAR = 1990;
-const MAX_AVAILABLE_YEAR = 2024;
-const MIN_PERIOD_DURATION = 1;
-const MAX_PERIOD_DURATION = 10;
-
-let selectedStartYear = 2015;
-let selectedEndYear = 2024;
-let YEARS = [];
-
-// Граматичне відмінювання кількості років в українській мові
-function formatYearsCount(count) {
-  if (count % 10 === 1 && count % 100 !== 11) {
-    return `${count} рік`;
-  } else if ([2, 3, 4].includes(count % 10) && ![12, 13, 14].includes(count % 100)) {
-    return `${count} роки`;
-  } else {
-    return `${count} років`;
-  }
-}
-
-// Формування масиву років для розрахунків
-function updateYearsArray() {
-  YEARS = [];
-  for (let y = selectedStartYear; y <= selectedEndYear; y++) {
-    YEARS.push(String(y));
-  }
-}
-
-// Керування випадаючим вікном часового проміжку
-function togglePeriodDropdown(forceState) {
-  const dropdown = document.getElementById("periodDropdown");
-  const trigger = document.getElementById("periodTrigger");
-  if (!dropdown || !trigger) return;
-
-  const isOpen = forceState !== undefined ? forceState : !dropdown.classList.contains("open");
-  if (isOpen) {
-    if (typeof closeCountryDropdown === "function") {
-      closeCountryDropdown();
-    }
-    dropdown.classList.add("open");
-    trigger.classList.add("active");
-    trigger.setAttribute("aria-expanded", "true");
-  } else {
-    dropdown.classList.remove("open");
-    trigger.classList.remove("active");
-    trigger.setAttribute("aria-expanded", "false");
-  }
-}
-
-function closePeriodDropdown() {
-  togglePeriodDropdown(false);
-}
-
-function applyAndClosePeriodDropdown() {
-  closePeriodDropdown();
-  loadSecurityData();
-}
-
-// Ініціалізація випадаючих списків років (від найновішого до найдавнішого)
-function initPeriodControls() {
-  const startSelect = document.getElementById("startYearSelect");
-  const endSelect = document.getElementById("endYearSelect");
-  if (!startSelect || !endSelect) return;
-
-  startSelect.innerHTML = "";
-  endSelect.innerHTML = "";
-
-  for (let y = MAX_AVAILABLE_YEAR; y >= MIN_AVAILABLE_YEAR; y--) {
-    const optStart = document.createElement("option");
-    optStart.value = y;
-    optStart.textContent = y;
-    if (y === selectedStartYear) optStart.selected = true;
-    startSelect.appendChild(optStart);
-
-    const optEnd = document.createElement("option");
-    optEnd.value = y;
-    optEnd.textContent = y;
-    if (y === selectedEndYear) optEnd.selected = true;
-    endSelect.appendChild(optEnd);
-  }
-
-  // Обробник кліку поза межами попапу
-  document.addEventListener("click", (e) => {
-    const wrapper = document.getElementById("periodSearchableSelect");
-    if (wrapper && !wrapper.contains(e.target)) {
-      closePeriodDropdown();
-    }
-  });
-
-  // Закриття клавішею Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closePeriodDropdown();
-    }
-  });
-
-  updatePeriodUI();
-}
-
-// Оновлення інтерфейсу часового проміжку та бейджів
-function updatePeriodUI() {
-  updateYearsArray();
-  const count = selectedEndYear - selectedStartYear + 1;
-
-  // Оновлення тригера на головній панелі
-  const triggerLabel = document.getElementById("periodTriggerLabel");
-  if (triggerLabel) {
-    triggerLabel.textContent = selectedStartYear === selectedEndYear 
-      ? `${selectedStartYear}` 
-      : `${selectedStartYear} – ${selectedEndYear}`;
-  }
-
-  const badge = document.getElementById("periodCountBadge");
-  if (badge) {
-    badge.textContent = formatYearsCount(count);
-  }
-
-  // Оновлення лічильника і шкали в попапі
-  const meterVal = document.getElementById("meterDurationText");
-  const meterFill = document.getElementById("meterDurationFill");
-  if (meterVal) {
-    if (count === MAX_PERIOD_DURATION) {
-      meterVal.textContent = `${formatYearsCount(count)} (максимум)`;
-    } else if (count === MIN_PERIOD_DURATION) {
-      meterVal.textContent = `${formatYearsCount(count)} (мінімум)`;
-    } else {
-      meterVal.textContent = `${formatYearsCount(count)} з 10`;
-    }
-  }
-  if (meterFill) {
-    const percent = (count / MAX_PERIOD_DURATION) * 100;
-    meterFill.style.width = `${percent}%`;
-    if (count === MAX_PERIOD_DURATION || count === MIN_PERIOD_DURATION) {
-      meterFill.classList.add("limit");
-    } else {
-      meterFill.classList.remove("limit");
-    }
-  }
-
-  // Оновлення активного класу карток пресетів
-  document.querySelectorAll(".preset-card").forEach(card => {
-    const cardYears = parseInt(card.getAttribute("data-years"), 10);
-    if (cardYears === count && selectedEndYear === MAX_AVAILABLE_YEAR) {
-      card.classList.add("active");
-    } else {
-      card.classList.remove("active");
-    }
-  });
-}
-
-// Обробник зміни року зі строгим дотриманням правила: 1 <= діапазон <= 10
-function onPeriodChange(changedSource) {
-  let start = parseInt(document.getElementById("startYearSelect").value, 10);
-  let end = parseInt(document.getElementById("endYearSelect").value, 10);
-
-  if (changedSource === 'start') {
-    if (start > end) {
-      end = start;
-    }
-    if (end - start + 1 > MAX_PERIOD_DURATION) {
-      end = Math.min(MAX_AVAILABLE_YEAR, start + MAX_PERIOD_DURATION - 1);
-    }
-  } else if (changedSource === 'end') {
-    if (end < start) {
-      start = end;
-    }
-    if (end - start + 1 > MAX_PERIOD_DURATION) {
-      start = Math.max(MIN_AVAILABLE_YEAR, end - MAX_PERIOD_DURATION + 1);
-    }
-  }
-
-  if (end - start + 1 > MAX_PERIOD_DURATION) {
-    end = start + MAX_PERIOD_DURATION - 1;
-  }
-  if (end < start) {
-    end = start;
-  }
-
-  selectedStartYear = start;
-  selectedEndYear = end;
-
-  document.getElementById("startYearSelect").value = selectedStartYear;
-  document.getElementById("endYearSelect").value = selectedEndYear;
-
-  updatePeriodUI();
-}
-
-// Швидке застосування популярних пресетів (10р, 7р, 5р, 3р, 1р)
-function applyPeriodPreset(yearsCount) {
-  const end = MAX_AVAILABLE_YEAR;
-  const start = Math.max(MIN_AVAILABLE_YEAR, end - yearsCount + 1);
-
-  selectedStartYear = start;
-  selectedEndYear = end;
-
-  const startSelect = document.getElementById("startYearSelect");
-  const endSelect = document.getElementById("endYearSelect");
-  if (startSelect) startSelect.value = selectedStartYear;
-  if (endSelect) endSelect.value = selectedEndYear;
-
-  updatePeriodUI();
-  closePeriodDropdown();
-  loadSecurityData();
-}
-
-// Оновлення динамічних заголовків та описів відповідно до обраного напряму безпеки
-function updateDomainTitles(domainKey) {
-  const domain = DOMAINS[domainKey];
-  if (!domain) return;
-
-  const pageMainTitle = document.getElementById("pageMainTitle");
-  if (pageMainTitle) {
-    pageMainTitle.textContent = domain.pageTitle || `Моніторинг ${domain.title}`;
-  }
-
-  const pageMainSubtitle = document.getElementById("pageMainSubtitle");
-  if (pageMainSubtitle) {
-    pageMainSubtitle.textContent = domain.description;
-  }
-
-  const methodologyTitle = document.getElementById("methodologyTitle");
-  if (methodologyTitle) {
-    methodologyTitle.textContent = domain.methodologyTitle || `Методологія та порогові інтервали: ${domain.shortTitle || domain.title}`;
-  }
-
-  document.title = `${domain.title} | Моніторинг економічної безпеки держави`;
-}
-
-// Обробник зміни напряму безпеки
-function onDomainChange() {
-  const domainKey = document.getElementById("domainSelect").value;
-  updateDomainTitles(domainKey);
-  renderMethodology();
-  loadSecurityData();
-}
-
-// 2. Головна функція завантаження та розрахунку даних
-async function loadSecurityData() {
-  const country = document.getElementById("countrySelect").value;
-  const domainKey = document.getElementById("domainSelect").value;
-  const domain = DOMAINS[domainKey];
-  const loader = document.getElementById("loader");
-  const btn = document.getElementById("loadBtn");
-
-  updateDomainTitles(domainKey);
-
-  loader.classList.add("active");
-  btn.disabled = true;
-
-  updateYearsArray();
-  updatePeriodUI();
-
-  const countryDisplayName = typeof getCountryDisplayName === "function" ? getCountryDisplayName(country) : country;
-  document.getElementById("tableTitle").innerHTML = `${domain.title} &mdash; <span class="country-title-highlight">${countryDisplayName}</span>`;
-  document.getElementById("tableSubtitle").innerText = domain.description;
-
-  currentDataset = [];
-
-  try {
-    // 2.1. Збір унікальних індикаторів World Bank API, які необхідно завантажити
-    const requiredWbIds = new Set();
-    const isExternalId = (id) => id.startsWith("CALC.") || id.startsWith("WE.") || id.startsWith("FOOD.") || id.startsWith("SOC.");
-    
-    domain.indicators.forEach(ind => {
-      if (!isExternalId(ind.id)) {
-        requiredWbIds.add(ind.id);
-      }
-      if (ind.deps) {
-        ind.deps.forEach(depId => {
-          if (!isExternalId(depId)) {
-            requiredWbIds.add(depId);
-          }
-        });
-      }
-    });
-
-    // 2.2. Паралельне завантаження даних через World Bank API
-    const wbCache = {};
-    const fetchPromises = Array.from(requiredWbIds).map(async (indicatorId) => {
-      const url = `https://api.worldbank.org/v2/country/${country}/indicator/${indicatorId}?date=${selectedStartYear}:${selectedEndYear}&per_page=100&format=json`;
-      try {
-        const res = await fetch(url);
-        const json = await res.json();
-        const map = {};
-        if (json && json[1]) {
-          json[1].forEach(entry => {
-            if (entry.value !== null && entry.value !== undefined) {
-              map[entry.date] = parseFloat(entry.value);
-            }
-          });
-        }
-        wbCache[indicatorId] = map;
-      } catch (e) {
-        console.warn(`Помилка отримання ${indicatorId}:`, e);
-        wbCache[indicatorId] = {};
-      }
-    });
-
-    await Promise.all(fetchPromises);
-
-    // 2.3. Розрахунок та формування набору даних
-    for (const ind of domain.indicators) {
-      const valuesMap = {};
-
-      YEARS.forEach(y => {
-        if (ind.compute) {
-          let val = ind.compute(wbCache, y);
-          // Перевірка резервних значень, якщо розрахунок через API дав порожній результат
-          if ((val === undefined || val === null || isNaN(val)) && LOCAL_FALLBACKS[ind.id]) {
-            val = LOCAL_FALLBACKS[ind.id][country]?.[y] ?? LOCAL_FALLBACKS[ind.id]["DEFAULT"]?.[y];
-          }
-          if (val !== undefined && val !== null && !isNaN(val)) {
-            valuesMap[y] = val;
-          }
-        } else {
-          let val = wbCache[ind.id]?.[y];
-          // Перевірка каліброваних бенчмарків для показників зовнішніх джерел (World Economics, FAOSTAT, USDA ERS)
-          if ((val === undefined || val === null || isNaN(val)) && LOCAL_BENCHMARKS[ind.id]) {
-            val = LOCAL_BENCHMARKS[ind.id][country]?.[y] ?? LOCAL_BENCHMARKS[ind.id]["DEFAULT"]?.[y];
-          }
-          // Перевірка локальних резервних даних World Bank (при лагах звітності або пропущених роках)
-          if ((val === undefined || val === null || isNaN(val)) && LOCAL_FALLBACKS[ind.id]) {
-            val = LOCAL_FALLBACKS[ind.id][country]?.[y] ?? LOCAL_FALLBACKS[ind.id]["DEFAULT"]?.[y];
-          }
-          if (val !== undefined && val !== null && !isNaN(val)) {
-            if (ind.transform) val = ind.transform(val);
-            valuesMap[y] = val;
-          }
-        }
-      });
-
-      // Середнє значення
-      const validVals = Object.values(valuesMap);
-      const avg = validVals.length ? (validVals.reduce((a, b) => a + b, 0) / validVals.length) : null;
-      
-      // Оцінка середнього
-      let avgLevel = null;
-      if (ind.eval && avg !== null) {
-        avgLevel = ind.eval(avg);
-      } else if (ind.isComponent) {
-        avgLevel = { name: "Базовий показник (WDI)", cls: "badge-component" };
-      } else {
-        avgLevel = { name: "Немає даних", cls: "" };
-      }
-
-      currentDataset.push({
-        id: ind.id,
-        name: ind.name,
-        code: ind.code || "",
-        unit: ind.unit,
-        formula: ind.formula,
-        meaning: ind.meaning,
-        rule: ind.rule,
-        isComponent: ind.isComponent,
-        values: valuesMap,
-        avg: avg,
-        level: avgLevel,
-        evalFn: ind.eval
-      });
-    }
-
-    // 2.4. Відображення на сторінці
-    renderTable();
-    renderChart();
-    renderMethodology();
-
-  } catch (err) {
-    alert("Помилка завантаження та розрахунку даних: " + err.message);
-    console.error(err);
-  } finally {
-    loader.classList.remove("active");
-    btn.disabled = false;
-  }
-}
-
-// 3. Відображення таблиці результатів
-function renderTable() {
-  const header = document.getElementById("tableHeader");
-  const body = document.getElementById("tableBody");
-
-  header.innerHTML = `
-    <th class="col-sticky-num">№</th>
-    <th class="col-sticky-name">Індикатор безпеки</th>
-    <th style="width: 75px; text-align: center;">Од.</th>
-  ` +
-  YEARS.map(y => `<th style="text-align: right; min-width: 72px;">${y}</th>`).join('') +
-  `
-    <th style="text-align: right; min-width: 90px;">Середнє</th>
-    <th style="min-width: 155px; text-align: center;">Рівень безпеки (сер.)</th>
-  `;
-
-  body.innerHTML = "";
-
-  currentDataset.forEach((row, idx) => {
-    const tr = document.createElement("tr");
-    
-    // Назва індикатора та підпис
-    let indTitleHtml = `<div class="table-indicator-name">${row.name}</div>`;
-    if (row.formula) {
-      indTitleHtml += `<span class="table-indicator-sub">${row.formula}</span>`;
-    } else if (row.isComponent) {
-      indTitleHtml += `<span class="table-indicator-sub">Базовий компонент World Bank WDI</span>`;
-    }
-
-    let rowHtml = `
-      <td class="col-sticky-num" style="color: var(--color-text-muted); font-weight: 600;">${idx + 1}</td>
-      <td class="col-sticky-name">${indTitleHtml}</td>
-      <td style="color: var(--color-text-muted); font-weight: 500; text-align: center;">${row.unit}</td>
-    `;
-
-    // Значення за роками
-    YEARS.forEach(y => {
-      const v = row.values[y];
-      if (v !== undefined) {
-        let cellTitle = "";
-        if (row.evalFn) {
-          const yLvl = row.evalFn(v);
-          cellTitle = `${yLvl.name} (${v.toFixed(2)} ${row.unit})`;
-        }
-        rowHtml += `<td class="table-num-cell" title="${cellTitle}">${v.toFixed(2)}</td>`;
-      } else {
-        rowHtml += `<td style="text-align: right; color: var(--color-text-disabled);">—</td>`;
-      }
-    });
-
-    // Середнє значення
-    const avgStr = row.avg !== null ? `${row.avg.toFixed(2)}` : "—";
-    rowHtml += `<td class="table-avg-cell">${avgStr}</td>`;
-
-    // Рівень безпеки середній
-    const lvlBadge = row.level ? `<span class="badge ${row.level.cls}">${row.level.name}</span>` : "—";
-    rowHtml += `<td style="text-align: center;">${lvlBadge}</td>`;
-
-    tr.innerHTML = rowHtml;
-    body.appendChild(tr);
-  });
-}
-
-// 5. Побудова інтерактивного графіка (Chart.js) з підтримкою двох осей
-function renderChart() {
-  const ctx = document.getElementById("securityChart").getContext("2d");
-  if (myChart) myChart.destroy();
-
-  const palette = [
-    '#2563eb', // blue
-    '#059669', // emerald
-    '#d97706', // amber
-    '#dc2626', // red
-    '#7c3aed', // purple
-    '#0891b2', // cyan
-    '#db2777', // pink
-    '#4f46e5', // indigo
-    '#ea580c', // orange
-    '#0d9488'  // teal
-  ];
-  
-  // Визначення одиниць виміру для осей (головна та додаткова вісь)
-  const unitCounts = {};
-  currentDataset.forEach(d => {
-    if (d.unit) unitCounts[d.unit] = (unitCounts[d.unit] || 0) + 1;
-  });
-  
-  const allUnits = Object.keys(unitCounts);
-  const hasMultipleUnits = allUnits.length > 1;
-
-  // За основну вісь беремо відсоткові показники (якщо є) або найчастішу одиницю
-  let primaryUnit = allUnits.find(u => u.includes('%')) || allUnits[0] || 'Значення';
-
-  const datasets = currentDataset.map((item, i) => {
-    const isSecondaryAxis = hasMultipleUnits && item.unit !== primaryUnit;
-    const color = palette[i % palette.length];
-
-    return {
-      label: `${item.name} (${item.unit})`,
-      data: YEARS.map(y => item.values[y] !== undefined ? item.values[y] : null),
-      borderColor: color,
-      backgroundColor: color,
-      borderWidth: item.isComponent ? 1.8 : 2.8,
-      borderDash: item.isComponent ? [4, 4] : [],
-      pointRadius: YEARS.length === 1 ? (item.isComponent ? 6 : 8) : (item.isComponent ? 3 : 5),
-      pointHoverRadius: YEARS.length === 1 ? 10 : 7,
-      spanGaps: true,
-      tension: 0.25,
-      yAxisID: isSecondaryAxis ? 'y1' : 'y'
-    };
-  });
-
-  const scalesConfig = {
-    x: {
-      offset: YEARS.length === 1,
-      grid: { color: '#f1f5f9' },
-      ticks: { font: { weight: '600' }, color: '#475569' }
-    },
-    y: {
-      type: 'linear',
-      position: 'left',
-      grid: { color: '#f1f5f9' },
-      title: {
-        display: true,
-        text: primaryUnit,
-        color: '#64748b',
-        font: { weight: '600', size: 12 }
-      }
-    }
-  };
-
-  if (hasMultipleUnits) {
-    const secondaryUnitsList = allUnits.filter(u => u !== primaryUnit);
-    scalesConfig.y1 = {
-      type: 'linear',
-      position: 'right',
-      grid: { drawOnChartArea: false },
-      title: {
-        display: true,
-        text: secondaryUnitsList.join(' / '),
-        color: '#64748b',
-        font: { weight: '600', size: 12 }
-      }
-    };
-  }
-
-  myChart = new Chart(ctx, {
-    type: 'line',
-    data: { labels: YEARS, datasets: datasets },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: {
-          position: 'bottom',
-          labels: { boxWidth: 14, padding: 16, font: { family: 'Inter', size: 12 } }
-        },
-        tooltip: {
-          padding: 12,
-          boxPadding: 6,
-          usePointStyle: true,
-          callbacks: {
-            label: function(context) {
-              const item = currentDataset[context.datasetIndex];
-              const val = context.parsed.y;
-              if (val === null || val === undefined) return `${item.name}: немає даних`;
-              let suffix = "";
-              if (item.evalFn) {
-                const lvl = item.evalFn(val);
-                suffix = ` [${lvl.name}]`;
-              }
-              return ` ${item.name}: ${val.toFixed(2)} ${item.unit}${suffix}`;
-            }
-          }
-        }
-      },
-      scales: scalesConfig
-    }
-  });
-}
-
-// 6. Відображення методологічної довідки та інтервалів
-function renderMethodology() {
-  const domainKey = document.getElementById("domainSelect").value;
-  const domain = DOMAINS[domainKey];
-  const container = document.getElementById("methodologyContent");
-  container.innerHTML = "";
-
-  domain.indicators.forEach(ind => {
-    const card = document.createElement("div");
-    card.className = "methodology-card";
-
-    let formulaHtml = ind.formula ? `<div class="methodology-formula">${ind.formula}</div>` : "";
-    let ruleHtml = ind.rule ? `<div class="methodology-highlight"><strong>Орієнтир:</strong> ${ind.rule}</div>` : "";
-    let meaningHtml = ind.meaning 
-      ? `<div class="methodology-desc">${ind.meaning}</div>` 
-      : (ind.isComponent 
-        ? `<div class="methodology-desc">Базовий первинний статистичний показник національних рахунків за методологією Світового банку (WDI). Використовується як складова для розрахунку аналітичних індикаторів безпеки.</div>` 
-        : "");
-
-    let intervalsHtml = "";
-    if (ind.intervals && ind.intervals.length) {
-      intervalsHtml = `
-        <div class="thresholds-table-wrapper">
-          <table class="thresholds-table">
-            <thead>
-              <tr>
-                <th style="width: 25%;">Інтервал (${ind.unit})</th>
-                <th style="width: 35%;">Рівень безпеки</th>
-                ${ind.intervals[0].note ? '<th style="width: 40%;">Характеристика стану</th>' : ''}
-              </tr>
-            </thead>
-            <tbody>
-              ${ind.intervals.map(row => `
-                <tr>
-                  <td><strong>${row.range}</strong></td>
-                  <td><span class="badge ${row.cls}">${row.level}</span></td>
-                  ${row.note ? `<td class="threshold-note">${row.note}</td>` : ''}
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        </div>
-      `;
-    }
-
-    let sourceLinkHtml = "";
-    if (ind.sourceUrl) {
-      sourceLinkHtml = `
-        <div class="methodology-card-footer">
-          <span class="footer-label">Джерело:</span>
-          <a href="${ind.sourceUrl}" target="_blank" rel="noopener" class="source-link">${ind.source} ↗</a>
-        </div>
-      `;
-    }
-
-    card.innerHTML = `
-      <div class="methodology-card-header">
-        <div class="methodology-badge-group">
-          ${ind.isComponent 
-            ? `<span class="methodology-pill pill-component">Базовий компонент WDI</span>`
-            : `<span class="methodology-pill pill-indicator">Аналітичний індикатор</span>`
-          }
-          <span class="methodology-code-pill">${ind.code}</span>
-        </div>
-        <h3 class="methodology-title">${ind.name}</h3>
-      </div>
-      <div class="methodology-card-body">
-        ${formulaHtml}
-        ${ruleHtml}
-        ${meaningHtml}
-        ${intervalsHtml}
-      </div>
-      ${sourceLinkHtml}
-    `;
-
-    container.appendChild(card);
-  });
-}
-
-// 7. Експорт даних у CSV
-function exportCSV() {
-  if (!currentDataset.length) return;
-  const country = document.getElementById("countrySelect").value;
-  const domainKey = document.getElementById("domainSelect").value;
-
-  let csv = "Indicator,Unit," + YEARS.join(",") + ",Average,Average_Level\n";
-
-  currentDataset.forEach(row => {
-    const vals = YEARS.map(y => row.values[y] !== undefined ? row.values[y].toFixed(2) : "").join(",");
-    const avgVal = row.avg !== null ? row.avg.toFixed(2) : "";
-    const avgLvl = row.level ? row.level.name : "";
-
-    csv += `"${row.name}","${row.unit}",${vals},${avgVal},"${avgLvl}"\n`;
-  });
-
-  const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `Security_Analysis_${domainKey}_${country}_${selectedStartYear}-${selectedEndYear}.csv`;
-  a.click();
-}
-
-// Автозапуск при відкритті сторінки
-window.onload = () => {
-  if (typeof initCountrySelect === "function") {
-    initCountrySelect();
-  }
-  initPeriodControls();
-  loadSecurityData();
-};
-</script>
 </body>
 </html>

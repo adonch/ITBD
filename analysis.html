@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Аналітика: Економічна безпека Аргентини (2015–2024) | Донч Антон</title>
+  <meta name="description" content="Комплексний аналіз економічної безпеки Аргентини: 7 ключових індикаторів Світового Банку, нормативні пороги, графіки динаміки, тенденції та загрози." />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Chart.js для інтерактивних графіків -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Файли стилів та даних -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="argentina_data.js"></script>
+  <script src="analysis.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ========================================================================
+       1. ГОЛОВНЕ НАВІГАЦІЙНЕ МЕНЮ (MULTI-PAGE NAVIGATION)
+       ======================================================================== -->
+  <nav class="site-nav" aria-label="Головна навігація">
+    <a href="index.html" class="site-nav-brand">
+      <div class="site-nav-logo">IT</div>
+      <div class="site-nav-titles">
+        <span class="site-nav-title">Економічна безпека держави</span>
+        <span class="site-nav-subtitle">Інформаційні технології моніторингу</span>
+      </div>
+    </a>
+
+    <ul class="site-nav-links">
+      <li>
+        <a href="index.html" class="site-nav-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Головна (Автор)
+        </a>
+      </li>
+      <li>
+        <a href="analysis.html" class="site-nav-link active">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          Аналітика: Аргентина
+          <span class="site-nav-badge">ARG</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ========================================================================
+       2. ШАПКА КРАЇНИ: АРГЕНТИНСЬКА РЕСПУБЛІКА (HERO CARD)
+       ======================================================================== -->
+  <section class="country-hero-card">
+    <div class="country-hero-content">
+      <div class="country-flag-title">
+        <div class="flag-icon-large" aria-hidden="true">🇦🇷</div>
+        <div class="country-title-box">
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span class="badge-portal">World Bank Open Data &bull; Об'єкт іспиту</span>
+            <span style="font-size: 12px; font-weight: 700; background: #e0f2fe; color: #0284c7; padding: 2px 8px; border-radius: 99px;">ISO: ARG / 032</span>
+          </div>
+          <h1>Аналітичний профіль економічної безпеки: Аргентина</h1>
+          <p>
+            Оцінка 7 ключових індикаторів безпеки за 2015–2024 роки відповідно до нормативних порогових шкал курсу «Інформаційні технології у системі забезпечення економічної безпеки держави».
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <button id="btnRefreshWb" class="btn-primary" style="height: 40px; font-size: 13px;" onclick="refreshDataFromWorldBank()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          Верифікувати через World Bank API
+        </button>
+        <div id="refreshStatus" style="font-size: 11.5px; color: var(--color-text-muted);">
+          База даних: 2015–2024 (Світовий Банк &bull; INDEC &bull; МВФ)
+        </div>
+      </div>
+    </div>
+
+    <!-- Факти про країну -->
+    <div class="country-facts-grid">
+      <div class="fact-item">
+        <div class="fact-label">Столиця</div>
+        <div class="fact-val">Буенос-Айрес</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-label">Населення (2024)</div>
+        <div class="fact-val">46,05 млн осіб</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-label">Номінальний ВВП</div>
+        <div class="fact-val">~$630 млрд</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-label">Група доходів СБ</div>
+        <div class="fact-val">Upper Middle Income</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-label">Національна валюта</div>
+        <div class="fact-val">Аргентинський песо (ARS)</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-label">Стратегічні ресурси</div>
+        <div class="fact-val">Пампа, Vaca Muerta, літій</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. ЗВЕДЕНИЙ СКОРЕКАРД СТАНУ БЕЗПЕКИ (SCORECARD GRID)
+       ======================================================================== -->
+  <section style="margin-bottom: 24px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <div>
+        <h2 style="font-size: 18px; font-weight: 800; color: var(--color-primary);">Структурний розподіл маркерів безпеки Аргентини</h2>
+        <p style="font-size: 13px; color: var(--color-text-muted);">Результати класифікації 7 екзаменаційних показників за 10-річним середнім значенням</p>
+      </div>
+      <span style="font-size: 12px; font-weight: 700; color: #1e3a8a; background: #eff6ff; padding: 4px 10px; border-radius: 99px;">
+        Всього індикаторів: 7
+      </span>
+    </div>
+
+    <div class="scorecard-grid" id="summaryScorecardGrid">
+      <!-- Наповнюється динамічно з analysis.js -->
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. ДЕТАЛЬНИЙ АНАЛІЗ УСІХ 7 ІНДИКАТОРІВ (PANELS)
+       ======================================================================== -->
+  <section id="indicatorsContainer">
+    <!-- Наповнюється динамічно функцією renderAllIndicators() з analysis.js -->
+  </section>
+
+  <!-- ========================================================================
+       5. ЗВЕДЕНА ТАБЛИЦЯ РЕЗУЛЬТАТІВ ОЦІНКИ
+       ======================================================================== -->
+  <section class="card" style="padding: 28px 32px; margin-bottom: 32px;">
+    <div class="card-header" style="margin-bottom: 16px;">
+      <div>
+        <h2 style="font-size: 20px; font-weight: 800; color: var(--color-primary);">Зведена таблиця оцінки економічної безпеки Аргентини</h2>
+        <p style="font-size: 13.5px; color: var(--color-text-secondary); margin-top: 4px;">
+          Порівняння середніх 10-річних значень, маркерів нормативної шкали та фактичного стану на 2024 рік
+        </p>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="data-table" style="font-size: 13px;">
+        <thead>
+          <tr>
+            <th style="width: 40px; text-align: center;">№</th>
+            <th style="text-align: left; min-width: 220px;">Індикатор економічної безпеки</th>
+            <th>Сфера безпеки</th>
+            <th>Фактичне сер. (10 років)</th>
+            <th>Рівень безпеки</th>
+            <th>Стан на 2024 рік</th>
+            <th style="text-align: left; min-width: 240px;">Аналітичний висновок щодо показника</th>
+          </tr>
+        </thead>
+        <tbody id="consolidatedTableBody">
+          <!-- Наповнюється з analysis.js -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. БЕЗПЕЧНІ ТА НЕБЕЗПЕЧНІ ТЕНДЕНЦІЇ В ЕКОНОМІЦІ АРГЕНТИНИ
+       ======================================================================== -->
+  <section style="margin-bottom: 32px;">
+    <h2 style="font-size: 22px; font-weight: 800; color: var(--color-primary); margin-bottom: 16px;">
+      Визначення безпечних і небезпечних тенденцій
+    </h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px;">
+      
+      <!-- Блок безпечних тенденцій -->
+      <div class="card" style="border-top: 4px solid #10b981; padding: 24px 28px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+          <div style="background: #ecfdf5; color: #065f46; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;">
+            ✓
+          </div>
+          <h3 style="font-size: 18px; font-weight: 800; color: #065f46;">Безпечні (позитивні) тенденції</h3>
+        </div>
+
+        <ul style="display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; line-height: 1.6; color: var(--color-text-secondary); padding-left: 18px;">
+          <li>
+            <strong>Стабільний аграрний базис:</strong> Урожайність зернових культур утримується в оптимальному інтервалі [45; 55] ц/га у 9 з 10 років завдяки технологічному землеробству Пампи та світовому попиту на сою і кукурудзу.
+          </li>
+          <li>
+            <strong>Відновлення торговельного сальдо:</strong> Зростання покриття імпорту експортом до 1,203 у 2024 році внаслідок відновлення агроекспорту після посухи та швидкого перетворення Аргентини на нетто-експортера енергоносіїв (нафта й газ басейну <em>Vaca Muerta</em>).
+          </li>
+          <li>
+            <strong>Монотонне зниження малюкової смертності:</strong> Скорочення смертності дівчаток з 9,0 до 7,1 на 1000 і вихід хлопчиків з критичної зони у 2024 році (8,9 на 1000) свідчать про збереження базового педіатричного потенціалу.
+          </li>
+          <li>
+            <strong>Досягнення первинного бюджетного профіциту:</strong> У 2024 році уперше за 16 років уряд продемонстрував фіскальний профіцит, зупинивши безконтрольну емісію грошей для фінансування бюджету.
+          </li>
+          <li>
+            <strong>Висока тривалість життя жінок:</strong> Показник стабільно перевищує 79–80 років, що відповідає оптимальному європейському стандарту довголіття.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Блок небезпечних тенденцій -->
+      <div class="card" style="border-top: 4px solid #ef4444; padding: 24px 28px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+          <div style="background: #fef2f2; color: #991b1b; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px;">
+            ⚠
+          </div>
+          <h3 style="font-size: 18px; font-weight: 800; color: #991b1b;">Небезпечні (деструктивні) тенденції</h3>
+        </div>
+
+        <ul style="display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; line-height: 1.6; color: var(--color-text-secondary); padding-left: 18px;">
+          <li>
+            <strong>Хронічна боргова криза:</strong> Загальний борг центрального уряду знаходиться в зоні абсолютної небезпеки (середнє 84,72% ВВП, пік 154,6% у 2023 р.). Висока частка валютного боргу провокує постійний суверенний ризик.
+          </li>
+          <li>
+            <strong>Глибоке майнове розшарування (децильний коефіцієнт ~17 разів):</strong> Показник у 2,4 раза гірший за поріг абсолютної небезпеки (&gt;7 разів). Стрибок бідності понад 50% у 2024 році створює небезпеку гострих соціальних заворушень.
+          </li>
+          <li>
+            <strong>Інноваційний голод та стагнація R&D:</strong> Витрати на науку законсервовані на критичній позначці 0,55% ВВП, що веде до деградації дослідницьких інститутів і масового виїзду молодих вчених.
+          </li>
+          <li>
+            <strong>Волатильність зовнішньої торгівлі:</strong> Експорт критично залежить від кліматичних катаклізмів (як екстремальна посуха 2022/2023 рр., що скоротила валютну виручку на третину).
+          </li>
+          <li>
+            <strong>Гендерний розрив тривалості життя:</strong> Чоловіки живуть у середньому на 5,5 років менше за жінок і перебувають у незадовільній зоні безпеки (73,55 років).
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. ОСНОВНІ ЗАГРОЗИ ЕКОНОМІЧНІЙ БЕЗПЕЦІ АРГЕНТИНИ
+       ======================================================================== -->
+  <section style="margin-bottom: 32px;">
+    <h2 style="font-size: 22px; font-weight: 800; color: var(--color-primary); margin-bottom: 16px;">
+      Основні загрози економічній безпеці Аргентини
+    </h2>
+
+    <div class="threats-section-grid">
+      <div class="threat-card-item danger-border">
+        <div class="threat-header">
+          <span class="threat-badge">Загроза №1</span>
+          <h3 class="threat-title">Боргова спіраль та валютний шок</h3>
+        </div>
+        <p class="threat-desc">
+          Борг у понад 85% ВВП за умов відсутності доступу до приватного зовнішнього кредитування змушує країну постійно балансувати на межі суверенного дефолту. Залежність від траншів МВФ ($44 млрд зобов'язань) обмежує економічний суверенітет і спрямовує значну частину валютної виручки на виплату відсотків.
+        </p>
+      </div>
+
+      <div class="threat-card-item danger-border">
+        <div class="threat-header">
+          <span class="threat-badge">Загроза №2</span>
+          <h3 class="threat-title">Соціальний розлом та пауперизація населення</h3>
+        </div>
+        <p class="threat-desc">
+          Децильне співвідношення 17,24 разів і падіння реальних доходів у період терапії шоком загрожують знищенням історичного аргентинського середнього класу. Високий рівень неформальної зайнятості (понад 45%) звужує податкову базу та створює тиск на пенсійну систему.
+        </p>
+      </div>
+
+      <div class="threat-card-item danger-border">
+        <div class="threat-header">
+          <span class="threat-badge">Загроза №3</span>
+          <h3 class="threat-title">Кліматична та сировинна монозалежність</h3>
+        </div>
+        <p class="threat-desc">
+          Понад 50% експорту припадає на агропромисловий комплекс (соя, кукурудза, пшениця). Повторення гідрологічних посух внаслідок кліматичних циклів El Niño / La Niña здатне миттєво обвалити коефіцієнт покриття імпорту нижче 0,85, викликавши дефіцит критичних медикаментів і промислових комплектуючих.
+        </p>
+      </div>
+
+      <div class="threat-card-item danger-border">
+        <div class="threat-header">
+          <span class="threat-badge">Загроза №4</span>
+          <h3 class="threat-title">Науково-технологічна маргіналізація</h3>
+        </div>
+        <p class="threat-desc">
+          Витрати на дослідження 0,55% ВВП при нормативі 2–3% загрожують втратою національних інженерних компетенцій. Зниження фінансування академічних центрів прискорює «відтік мізків» до США, Іспанії та Німеччини, закріплюючи за країною роль виключно постачальника сировини.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. УЗАГАЛЬНЕНИЙ АНАЛІТИЧНИЙ ВИСНОВОК ТА СТРАТЕГІЧНІ РЕКОМЕНДАЦІЇ
+       ======================================================================== -->
+  <section class="final-conclusion-card">
+    <h2 class="conclusion-title">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+      Узагальнений аналітичний висновок
+    </h2>
+
+    <div class="conclusion-points">
+      <div class="conclusion-point">
+        <span class="point-num">1</span>
+        <div>
+          <strong>Діагностика загального стану:</strong> Економічна безпека Аргентинської Республіки за аналізований період (2015–2024 рр.) характеризується <strong>високою асиметрією та структурною поляризацією</strong>. Країна володіє міцними природно-ресурсними опорами (висока врожайність зернових — 49,55 ц/га, оптимальне покриття торгівлі — 1,036), проте перебуває у стані гострої вразливості у фіскально-борговій (борг 84,72% ВВП) та соціальній (розрив доходів 17,24 разів) сферах.
+        </div>
+      </div>
+
+      <div class="conclusion-point">
+        <span class="point-num">2</span>
+        <div>
+          <strong>Позитивний імпульс 2024 року:</strong> Завдяки жорсткій стабілізаційній політиці вдалося ліквідувати хронічний фіскальний дефіцит, стримати знецінення національної грошової одиниці та активізувати енергетичний експорт. Відновлення врожаїв після кліматичної кризи 2023 року дозволило повернути коефіцієнт покриття імпорту експортом до сприятливого значення 1,203.
+        </div>
+      </div>
+
+      <div class="conclusion-point">
+        <span class="point-num">3</span>
+        <div>
+          <strong>Критичні вузькі місця:</strong> Головним бар'єром довгострокової стійкості є недостатність інноваційних інвестицій (0,55% ВВП) та надзвичайно висока соціальна поляризація. Без подолання бідності та підтримки внутрішнього платоспроможного попиту будь-яка монетарна стабілізація матиме хиткий характер.
+        </div>
+      </div>
+
+      <div class="conclusion-point">
+        <span class="point-num">4</span>
+        <div>
+          <strong>Стратегічні рекомендації для зміцнення безпеки:</strong>
+          <ul style="margin-top: 6px; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;">
+            <li><em>Фіскально-боргова сфера:</em> Закріплення профіциту первинного бюджету, реструктуризація графіків виплат МВФ з подовженням строків погашення, нарощування золотовалютних резервів центрального банку.</li>
+            <li><em>Зовнішньоекономічна сфера:</em> Диверсифікація експорту за рахунок зрідженого газу (LNG) з родовища Вака Муерта, видобутку літію («літієвий трикутник») та сільськогосподарської продукції глибокої переробки.</li>
+            <li><em>Інноваційна сфера:</em> Запровадження податкових пільг для приватних підприємств, що інвестують у R&D (насамперед у сфері біотехнологій та агротеху), для підвищення частки витрат щонайменше до 1,0–1,5% ВВП.</li>
+            <li><em>Соціальна сфера:</em> Трансформація прямих дотацій у стимулюючі програми офіційного працевлаштування та адресну підтримку дитячого харчування для зниження децильного розшарування з 17 до 7–8 разів.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       9. ПІДВАЛ СТОРІНКИ (FOOTER)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-copy">
+      Автор сайту: <strong>Донч Антон</strong> &bull; Рік створення: <strong>2026</strong>
+    </div>
+    <div class="footer-meta">
+      Іспит з дисципліни «Інформаційні технології у системі забезпечення економічної безпеки держави» &bull; Практична частина
+    </div>
+    <div style="font-size: 11.5px; color: var(--color-text-muted);">
+      Опубліковано за допомогою <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a> &bull; Репозиторій: <a href="https://github.com/adonch/ITBD" target="_blank" rel="noopener noreferrer">adonch/ITBD</a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
